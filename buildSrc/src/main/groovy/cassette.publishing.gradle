@@ -4,9 +4,12 @@
 // deploys and tags what it finds there:
 //
 //   ./gradlew clean build cliJar publish
-//   ./gradlew jreleaserConfig                  resolved config, no network
-//   ./gradlew jreleaserFullRelease --dry-run   signs and validates, uploads nothing
-//   ./gradlew jreleaserFullRelease             deploy, tag, GitHub release
+//   ./gradlew jreleaserConfig                          resolved config, no network
+//   ./gradlew jreleaserFullRelease -Pjreleaser.dryrun  signs and validates, uploads nothing
+//   ./gradlew jreleaserFullRelease                     deploy, tag, GitHub release
+//
+// `--dry-run` is Gradle's own flag and only prints the task graph, which reports the release as
+// SKIPPED and looks like a pass. JReleaser's dry run is the `-P` switch above.
 //
 // Credentials come from the environment, never from a file in the repository:
 // JRELEASER_GPG_{PUBLIC_KEY,SECRET_KEY,PASSPHRASE}, JRELEASER_MAVENCENTRAL_{USERNAME,PASSWORD}
@@ -82,6 +85,8 @@ publishing {
 // instead. `owner` and `name` are read-only there and fail loudly; `description` is writable and
 // would quietly set the Gradle project's description while leaving JReleaser's unset.
 jreleaser {
+    dryrun = providers.gradleProperty('jreleaser.dryrun').present
+
     project { project ->
         project.description = DESCRIPTION
         project.copyright = '2026 The c(a)ssette authors'
