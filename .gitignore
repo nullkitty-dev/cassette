@@ -29,6 +29,10 @@ bin/
 CLAUDE.md
 .claude/
 
+# Working documents. Kept locally for the same reason. Narrow this if a spec is ever meant
+# to ship, rather than deleting the rule and publishing every past one with it.
+docs/specs/
+
 # Vendored benchmark corpus — large, fetched per src/jmh/resources/corpus/README.md
 src/jmh/resources/corpus/medium-bootstrap.css
 src/jmh/resources/corpus/large-generated-tailwind.css
