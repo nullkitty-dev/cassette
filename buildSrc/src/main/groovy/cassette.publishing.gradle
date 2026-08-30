@@ -30,6 +30,68 @@ final DESCRIPTION = 'A fast, dependency-free CSS parser, transformer and seriali
 
 def stagingDir = layout.buildDirectory.dir('staging-deploy')
 
+// The GitHub release body is one version's section of CHANGELOG.md.
+//
+// Not the generated notes, which are commit subjects and would have read "feat: c(a)ssette 1.0.0"
+// for the whole of 1.0.0, and not the file itself, which would repeat every past release in every
+// new one. CHANGELOG.md stays the single source, and this takes the slice that belongs to the
+// version being released.
+def changelogFile = layout.projectDirectory.file('CHANGELOG.md')
+def changelogSectionFile = layout.buildDirectory.file('jreleaser/changelog-section.md')
+def releaseVersion = providers.provider { project.version.toString() }
+
+def changelogSection = tasks.register('changelogSection') {
+    group = 'documentation'
+    description = "Extracts the released version's section of CHANGELOG.md for the release body."
+
+    inputs.file changelogFile
+    inputs.property 'version', releaseVersion
+    outputs.file changelogSectionFile
+
+    doLast {
+        def version = releaseVersion.get()
+        def lines = changelogFile.asFile.readLines()
+
+        // `## [1.0.0] - 2026-08-30`, with the brackets optional. The section ends at the next
+        // `## `, which is the previous release, or at the end of the file for the first one.
+        def heading = ~/^##\s+\[?${java.util.regex.Pattern.quote(version)}\]?\b.*/
+        def start = lines.findIndexOf { heading.matcher(it).matches() }
+        if (start < 0) {
+            throw new GradleException(
+                "CHANGELOG.md has no section for ${version}. A release with an empty body is " +
+                    'worse than a failed build, so this stops here.')
+        }
+
+        def rest = lines.drop(start + 1)
+        def end = rest.findIndexOf { it.startsWith('## ') }
+        def section = (end < 0 ? rest : rest.take(end))
+
+        // Link-reference definitions sit at the bottom of the file, so whichever section is last
+        // absorbs them. They render as nothing, which is what would keep one here unnoticed.
+        def linkDefinition = ~/^\[[^\]]+]:\s+\S+.*/
+        while (!section.isEmpty()
+            && (section.last().isBlank() || linkDefinition.matcher(section.last()).matches())) {
+            section = section.dropRight(1)
+        }
+
+        def body = section.join('\n').trim()
+
+        if (body.isEmpty()) {
+            throw new GradleException("CHANGELOG.md's ${version} section is empty")
+        }
+
+        def target = changelogSectionFile.get().asFile
+        target.parentFile.mkdirs()
+        target.text = body + '\n'
+    }
+}
+
+// Every jreleaser task, not just the release: the dry run has to render the same body the real
+// run will, or it is not checking the thing it looks like it is checking.
+tasks.matching { it.name.startsWith('jreleaser') }.configureEach {
+    dependsOn changelogSection
+}
+
 // Registered by cassette.cli, which build.gradle applies first. It is not wired into `assemble`,
 // so a release has to build it explicitly or this path does not exist.
 def cliJar = tasks.named('cliJar', Jar)
@@ -128,6 +190,10 @@ jreleaser {
         release.github { github ->
             github.repoOwner = 'nullkitty-dev'
             github.name = 'cassette'
+
+            github.changelog { changelog ->
+                changelog.external.set(changelogSectionFile)
+            }
         }
     }
 
