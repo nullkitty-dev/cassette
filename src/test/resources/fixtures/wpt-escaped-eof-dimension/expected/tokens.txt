@@ -1,0 +1,7 @@
+IDENT       0..3       |foo|
+WHITESPACE  3..4       | |
+LEFT_CURLY  4..5       |{|
+WHITESPACE  5..6       | |
+IDENT       6..11      |--foo|
+COLON       11..12     |:|
+DIMENSION   12..17     |1foo\\| value=|foo�| number=1 integer escaped

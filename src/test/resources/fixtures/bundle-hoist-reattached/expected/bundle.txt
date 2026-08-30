@@ -1,0 +1,63 @@
+Stylesheet 0..267
+  AtRule @import 117..147 statement
+    prelude
+      Url |missing-font.css|
+      Whitespace
+      Ident |print|
+  AtRule @import 168..199 statement
+    prelude
+      Url |missing-theme.css|
+      Whitespace
+      Function |layer| 56..68
+        Ident |theme|
+  ConditionalGroupRule @media 117..168
+    prelude
+      Ident |print|
+    StyleRule 148..167
+      SelectorList 148..156
+        Complex 148..156 (0,1,0)
+          Compound 148..156
+            Class |printed|
+      Declaration |top| 159..165
+        Number |1| = 1 integer
+  ConditionalGroupRule @layer 168..219
+    prelude
+      Ident |theme|
+    StyleRule 200..218
+      SelectorList 200..207
+        Complex 200..207 (0,1,0)
+          Compound 200..207
+            Class |themed|
+      Declaration |top| 210..216
+        Number |2| = 2 integer
+  ConditionalGroupRule @layer 219..267
+    AtRule @import 219..249 statement
+      prelude
+        Url |missing-anon.css|
+    StyleRule 250..266
+      SelectorList 250..255
+        Complex 250..255 (0,1,0)
+          Compound 250..255
+            Class |anon|
+      Declaration |top| 258..264
+        Number |3| = 3 integer
+  StyleRule 99..116
+    SelectorList 99..105
+      Complex 99..105 (0,1,0)
+        Compound 99..105
+          Class |entry|
+    Declaration |top| 108..114
+      Number |0| = 0 integer
+
+diagnostics
+  WARNING 117..147 @import "missing-font.css" was not resolved, so it is left in the output
+  WARNING 168..199 @import "missing-theme.css" was not resolved, so it is left in the output
+  WARNING 168..199 @import moved to the top of the bundle, past 2 rules; an @import may only be preceded by @charset and @layer
+  WARNING 219..249 @import "missing-anon.css" was not resolved, so it is left in the output
+  WARNING 219..249 @import is inside a conditional import whose condition cannot be moved onto an @import prelude, so hoisting it would change what this stylesheet means; it is left where it is, and an @import is not valid there
+
+segments
+  0..117 index.css
+  117..168 printed.css imported from index.css@0
+  168..219 themed.css imported from index.css@32
+  219..267 anon.css imported from index.css@70

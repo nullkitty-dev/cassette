@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" width="640" height="200" role="img" aria-labelledby="title desc">
+  <title id="title">c(a)ssette</title>
+  <desc id="desc">A retro cassette inlay label. Three colour bands above the wordmark c(a)ssette, over the line CSS parser, zero deps, JVM.</desc>
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="0.15" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.45" stop-color="#FCF7EA"/>
+      <stop offset="1" stop-color="#F3E9D2"/>
+    </linearGradient>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+    </filter>
+    <filter id="lift" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#2C2219" flood-opacity="0.28"/>
+    </filter>
+    <clipPath id="labelClip">
+      <rect x="10" y="8" width="620" height="176" rx="12"/>
+    </clipPath>
+  </defs>
+
+  <!-- label -->
+  <g filter="url(#lift)">
+    <rect x="10" y="8" width="620" height="176" rx="12" fill="url(#paper)"/>
+  </g>
+
+  <g clip-path="url(#labelClip)">
+    <!-- three colour bands, closed by a teal rule -->
+    <rect x="10" y="8" width="620" height="15" fill="#C0472F"/>
+    <rect x="10" y="23" width="620" height="15" fill="#E4703A"/>
+    <rect x="10" y="38" width="620" height="15" fill="#E9B44C"/>
+    <rect x="10" y="53" width="620" height="3" fill="#2E7F76"/>
+    <rect x="10" y="179" width="620" height="5" fill="#C0472F"/>
+    <rect x="10" y="174" width="620" height="5" fill="#E9B44C"/>
+    <!-- paper grain -->
+    <rect x="10" y="8" width="620" height="176" filter="url(#grain)" opacity="0.08"/>
+  </g>
+
+  <!-- wordmark -->
+  <g font-family="Futura, Avenir Next, Century Gothic, Trebuchet MS, Helvetica Neue, Arial, sans-serif" text-anchor="middle">
+    <text x="320" y="126" font-size="76" font-weight="700" fill="#2C2219" letter-spacing="-1.5">c<tspan fill="#E4703A">(</tspan>a<tspan fill="#E4703A">)</tspan>ssette</text>
+    <text x="320" y="157" font-size="15" font-weight="600" fill="#2E7F76" letter-spacing="6.5">CSS PARSER &#183; ZERO DEPS &#183; JVM</text>
+  </g>
+
+  <rect x="10" y="8" width="620" height="176" rx="12" fill="none" stroke="#2C2219" stroke-opacity="0.16" stroke-width="1.5"/>
+</svg>

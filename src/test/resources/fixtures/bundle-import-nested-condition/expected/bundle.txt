@@ -1,0 +1,30 @@
+Stylesheet 0..108
+  ConditionalGroupRule @media 48..108
+    prelude
+      Ident |print|
+    StyleRule 90..107
+      SelectorList 90..96
+        Complex 90..96 (0,1,0)
+          Compound 90..96
+            Class |inner|
+      Declaration |top| 99..105
+        Number |2| = 2 integer
+    StyleRule 72..89
+      SelectorList 72..78
+        Complex 72..78 (0,1,0)
+          Compound 72..78
+            Class |outer|
+      Declaration |top| 81..87
+        Number |1| = 1 integer
+  StyleRule 30..47
+    SelectorList 30..36
+      Complex 30..36 (0,1,0)
+        Compound 30..36
+          Class |entry|
+    Declaration |top| 39..45
+      Number |0| = 0 integer
+
+segments
+  0..48 index.css
+  48..90 outer.css imported from index.css@0
+  90..108 inner.css imported from outer.css@0

@@ -1,0 +1,11 @@
+#foo {
+    --foo-1:bar;
+    --foo-2: bar;
+    --foo-3:bar ;
+    --foo-4: bar ;
+    --foo-5: bar !important;
+    --foo-6: bar !important ;
+    --foo-7:bar!important;
+    --foo-8:bar!important ;
+    --foo-9:bar
+}

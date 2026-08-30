@@ -1,0 +1,15 @@
+0:0 -> input.css:0:0  «@charset "utf-8";»
+0:17 -> input.css:1:0  «@import url("base.css") …»
+0:48 -> input.css:2:0  «@layer base, components;»
+0:71 -> input.css:4:0  «@layer base {»
+0:83 -> input.css:5:2  «html { margin: 0 }»
+0:88 -> input.css:5:9  «margin: 0 }»
+0:98 -> input.css:8:0  «@media screen and (min-w…»
+0:133 -> input.css:9:2  «@supports (display: grid…»
+0:157 -> input.css:10:4  «.grid { display: grid }»
+0:163 -> input.css:10:12  «display: grid }»
+0:178 -> input.css:14:0  «@font-face {»
+0:246 -> input.css:19:0  «@keyframes slide {»
+0:289 -> input.css:24:0  «@container card (min-wid…»
+0:322 -> input.css:25:2  «.title { font-size: 2rem…»
+0:329 -> input.css:25:11  «font-size: 2rem }»

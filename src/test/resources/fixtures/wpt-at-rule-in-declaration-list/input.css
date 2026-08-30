@@ -1,0 +1,19 @@
+div {
+  @at {}
+  color: green;
+}
+
+div {
+  @at at;
+  color: green;
+}
+
+@page {
+  @at {}
+  margin-top: 20px;
+}
+
+@font-face {
+  @at at;
+  font-family: myfont;
+}

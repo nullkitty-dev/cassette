@@ -1,0 +1,47 @@
+# One representative Encoding Standard label per charset cassette catalogues.
+#
+# Read by two things, which is the entire reason it is a file rather than a list in either of
+# them: SourceTextTest.cataloguedLabelsResolve asserts each one resolves on the JVM under test,
+# and the `nativeCharsetCheck` Gradle task asserts the same of the native binary. docs/CLI.md asks
+# for "that same test against the binary", and one list is what makes "same" literally true —
+# a native image built without -H:+AddAllCharsets fails the second while passing the first.
+#
+# Not every alias, only one per target charset: the aliases are asserted separately, and this
+# list exists to prove the table is populated and the encodings are available.
+
+utf-8
+utf-16be
+utf-16le
+windows-1252
+iso-8859-1
+us-ascii
+windows-1250
+windows-1251
+windows-1253
+windows-1254
+windows-1255
+windows-1256
+windows-1257
+windows-1258
+windows-874
+iso-8859-2
+iso-8859-3
+iso-8859-4
+iso-8859-5
+iso-8859-6
+iso-8859-7
+iso-8859-8
+iso-8859-13
+iso-8859-15
+koi8-r
+koi8-u
+macintosh
+x-mac-cyrillic
+ibm866
+gbk
+gb18030
+big5
+euc-jp
+iso-2022-jp
+shift_jis
+euc-kr

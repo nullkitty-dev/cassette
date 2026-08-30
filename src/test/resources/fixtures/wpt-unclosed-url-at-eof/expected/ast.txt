@@ -1,0 +1,19 @@
+Stylesheet 0..80
+  StyleRule 0..39
+    SelectorList 0..8
+      Complex 0..8 (1,0,0)
+        Compound 0..8
+          Id |control|
+    Declaration |background-image| 11..37
+      Url |foo|
+  StyleRule 40..80
+    SelectorList 40..51
+      Complex 40..51 (1,0,0)
+        Compound 40..51
+          Id |experiment|
+    Declaration |background-image| 54..80
+      Url |foo| unterminated
+
+diagnostics
+  ERROR 72..80 unterminated url() at end of input
+  ERROR 52..80 unclosed block in style rule

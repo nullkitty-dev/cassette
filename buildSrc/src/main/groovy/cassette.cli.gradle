@@ -1,0 +1,147 @@
+plugins {
+    id 'java'
+    id 'org.graalvm.buildtools.native'
+}
+
+// The CLI is a fourth source set so that it can only use what a real embedder can: a feature
+// needing something unexported surfaces as a decision about the public API rather than a quiet
+// reach into a package-private class. Its tests live in `src/test` and drive it as a library,
+// which is why `test` compiles against its output. See docs/CLI.md.
+sourceSets {
+    cli {
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
+    }
+    test {
+        compileClasspath += sourceSets.cli.output
+        runtimeClasspath += sourceSets.cli.output
+    }
+}
+
+// Off the module path, like `test` and `jmh`: `module-info` describes the published surface.
+tasks.named('compileCliJava', JavaCompile) { modularity.inferModulePath = false }
+
+// `build` compiles main and test only, so without this a broken CLI passes CI.
+tasks.named('check') { dependsOn tasks.named('compileCliJava') }
+
+// With zero runtime dependencies the "fat" jar is the library's classes plus the CLI's, so
+// there is nothing to shade, and the published jar stays a library with no Main-Class.
+tasks.register('cliJar', Jar) {
+    group = 'build'
+    description = 'Runnable jar for the command-line driver.'
+    archiveClassifier = 'cli'
+    from sourceSets.main.output, sourceSets.cli.output
+    manifest {
+        attributes(
+            'Main-Class': 'dev.nullkitty.cassette.cli.Cli',
+            'Implementation-Version': project.version,
+        )
+    }
+}
+
+tasks.register('cassette', JavaExec) {
+    group = 'application'
+    description = "Runs the CLI: ./gradlew cassette --args='check style.css'"
+    classpath = sourceSets.cli.runtimeClasspath
+    mainClass = 'dev.nullkitty.cassette.cli.Cli'
+}
+
+// Native image, for startup and only startup: a one-file run is almost entirely the JVM
+// arriving. The jar is not replaced, and both artifacts are the same code behind the same
+// flags. Applying the plugin costs nothing, and only `nativeCompile` resolves a GraalVM
+// toolchain, so `./gradlew build` still runs on any JDK 21. See docs/CLI.md.
+graalvmNative {
+    // Otherwise the plugin registers a `test` binary as well, which would want JUnit and jqwik
+    // to survive AOT compilation. `nativeCharsetCheck` below is what guards the binary.
+    testSupport = false
+
+    binaries.named('main') {
+        imageName = 'cassette'
+        mainClass = 'dev.nullkitty.cassette.cli.Cli'
+        classpath sourceSets.cli.runtimeClasspath
+
+        // Without this the build succeeds and produces a 23 MB `cassette.dylib` plus C headers,
+        // because the plugin builds a shared library when the `application` plugin is absent.
+        // Setting a main class does not flip it back.
+        sharedLibrary = false
+
+        // Native Image ships UTF-8, ISO-8859-1, US-ASCII, the UTF-16 family and the platform
+        // default, and nothing else. windows-1252 is not among them, and it is where the
+        // Encoding Standard sends `iso-8859-1`, `latin1`, `ascii` and `us-ascii`.
+        buildArgs.add('-H:+AddAllCharsets')
+
+        // Fail rather than emit a "fallback image", native-image's name for giving up and
+        // bundling a whole JVM. That still runs, so a build which lost the point of itself
+        // would look like one that worked. The plugin defaults this off; pinning it means a
+        // change to its defaults cannot turn it back on.
+        fallback = false
+
+        // By capability, not by vendor: `JvmVendorSpec.GRAAL_VM` matches GraalVM Community by
+        // name, and an Oracle GraalVM reports "Oracle" and does not match it.
+        javaLauncher = javaToolchains.launcherFor {
+            languageVersion = JavaLanguageVersion.of(25)
+            nativeImageCapable = true
+        }
+    }
+}
+
+// Dropping `-H:+AddAllCharsets` breaks nothing a build can see: the binary still parses every
+// UTF-8 stylesheet, and fails on legacy input at run time on someone else's machine.
+// `SourceTextTest.cataloguedLabelsResolve` runs on the JVM, which has every charset, so this
+// asks the binary over the same label list. Not in `check`: it needs a GraalVM.
+tasks.register('nativeCharsetCheck') {
+    group = 'verification'
+    description = 'Asserts the native binary can decode every charset cassette catalogues.'
+    dependsOn tasks.named('nativeCompile')
+
+    def labelFile = layout.projectDirectory.file('src/test/resources/charset-labels.txt')
+    def binary = layout.buildDirectory.file('native/nativeCompile/cassette')
+    def work = layout.buildDirectory.dir('native/charsetCheck')
+    inputs.file labelFile
+    outputs.dir work
+
+    doLast {
+        def labels = labelFile.asFile.readLines()
+            .collect { it.trim() }
+            .findAll { !it.isEmpty() && !it.startsWith('#') }
+        if (labels.size() <= 30) {
+            throw new GradleException("charset-labels.txt looks empty: ${labels.size()} labels")
+        }
+
+        def dir = work.get().asFile
+        dir.deleteDir()
+        dir.mkdirs()
+        def probes = labels.collect { label ->
+            // Nothing but the rule: any body would be decoded through the charset under test
+            // and produce noise.
+            new File(dir, "${label.replaceAll('[^a-z0-9]', '_')}.css")
+                .with { it.text = "@charset \"$label\";\n"; it }
+        }
+        // A positive control, so a binary whose diagnostics were broken outright cannot pass
+        // this vacuously.
+        def control = new File(dir, '_control.css')
+            .with { it.text = '@charset "definitely-not-an-encoding";\n'; it }
+
+        def result = providers.exec {
+            commandLine([binary.get().asFile.absolutePath, 'check', '--color=never']
+                + probes.collect { it.absolutePath } + control.absolutePath)
+            ignoreExitValue = true
+        }
+        def text = result.standardError.asText.get() + result.standardOutput.asText.get()
+
+        // The library distinguishes "no such encoding" from "this build cannot supply it"
+        // precisely so this is answerable. The second is the native-image failure.
+        def missing = text.readLines().findAll { it.contains('this build cannot decode') }
+        if (!missing.isEmpty()) {
+            throw new GradleException(
+                "the native binary is missing ${missing.size()} charset(s) — is " +
+                    "-H:+AddAllCharsets still set?\n" + missing.join('\n'))
+        }
+        if (!text.contains('names no known encoding')) {
+            throw new GradleException(
+                'the control label reported nothing, so this check proves nothing: ' +
+                    'the binary\'s charset diagnostics are not reaching stderr at all')
+        }
+        logger.lifecycle("native binary decodes all ${labels.size()} catalogued charsets")
+    }
+}

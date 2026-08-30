@@ -1,0 +1,27 @@
+@import url(missing-font.css) print;
+
+@import url(missing-theme.css) layer(theme);
+
+@media print {
+  .printed {
+    top: 1;
+  }
+}
+
+@layer theme {
+  .themed {
+    top: 2;
+  }
+}
+
+@layer {
+  @import url(missing-anon.css);
+
+  .anon {
+    top: 3;
+  }
+}
+
+.entry {
+  top: 0;
+}

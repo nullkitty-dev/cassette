@@ -1,0 +1,46 @@
+DELIM       0..1       |.|
+IDENT       1..4       |foo|
+WHITESPACE  4..5       | |
+LEFT_CURLY  5..6       |{|
+WHITESPACE  6..9       |\n  |
+IDENT       9..20      |line-height|
+COLON       20..21     |:|
+WHITESPACE  21..22     | |
+NUMBER      22..25     |1.0| number=1
+SEMICOLON   25..26     |;|
+WHITESPACE  26..29     |\n  |
+IDENT       29..40     |line-height|
+COLON       40..41     |:|
+WHITESPACE  41..42     | |
+NUMBER      42..44     |.1| number=0.1
+SEMICOLON   44..45     |;|
+WHITESPACE  45..48     |\n  |
+IDENT       48..59     |line-height|
+COLON       59..60     |:|
+WHITESPACE  60..61     | |
+NUMBER      61..62     |1| number=1 integer
+DELIM       62..63     |.|
+SEMICOLON   63..64     |;|
+WHITESPACE  64..67     |\n  |
+IDENT       67..72     |width|
+COLON       72..73     |:|
+WHITESPACE  73..74     | |
+DIMENSION   74..79     |1.0px| value=|px| number=1
+SEMICOLON   79..80     |;|
+WHITESPACE  80..83     |\n  |
+IDENT       83..88     |width|
+COLON       88..89     |:|
+WHITESPACE  89..90     | |
+DIMENSION   90..94     |.1px| value=|px| number=0.1
+SEMICOLON   94..95     |;|
+WHITESPACE  95..98     |\n  |
+IDENT       98..103    |width|
+COLON       103..104   |:|
+WHITESPACE  104..105   | |
+NUMBER      105..106   |1| number=1 integer
+DELIM       106..107   |.|
+IDENT       107..109   |px|
+SEMICOLON   109..110   |;|
+WHITESPACE  110..111   |\n|
+RIGHT_CURLY 111..112   |}|
+WHITESPACE  112..113   |\n|

@@ -1,0 +1,11 @@
+div {
+  .a { }
+  --x:hover { }
+  .b { }
+}
+
+section {
+  .a { }
+  --x:hover { ] }
+  .b { }
+}

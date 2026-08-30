@@ -1,0 +1,43 @@
+DELIM       0..1       |.|
+IDENT       1..2       |a|
+WHITESPACE  2..3       | |
+LEFT_CURLY  3..4       |{|
+WHITESPACE  4..5       | |
+RIGHT_CURLY 5..6       |}|
+WHITESPACE  6..7       |\n|
+IDENT       7..10      |--x|
+COLON       10..11     |:|
+IDENT       11..16     |hover|
+WHITESPACE  16..17     | |
+LEFT_CURLY  17..18     |{|
+WHITESPACE  18..19     | |
+RIGHT_CURLY 19..20     |}|
+WHITESPACE  20..21     | |
+COMMENT     21..43     |/* Ambiguous "rule" */| value=| Ambiguous "rule" |
+WHITESPACE  43..44     |\n|
+DELIM       44..45     |.|
+IDENT       45..46     |b|
+WHITESPACE  46..47     | |
+LEFT_CURLY  47..48     |{|
+WHITESPACE  48..49     | |
+RIGHT_CURLY 49..50     |}|
+WHITESPACE  50..51     |\n|
+IDENT       51..54     |--y|
+COLON       54..55     |:|
+IDENT       55..60     |hover|
+WHITESPACE  60..61     | |
+LEFT_CURLY  61..62     |{|
+WHITESPACE  62..63     | |
+RIGHT_SQUARE63..64     |]|
+WHITESPACE  64..65     | |
+RIGHT_CURLY 65..66     |}|
+WHITESPACE  66..67     | |
+COMMENT     67..116    |/* Ambiguous "rule", with a mismatched bracket */| value=| Ambiguous "rule", with a mismatched bracket |
+WHITESPACE  116..117   |\n|
+DELIM       117..118   |.|
+IDENT       118..119   |c|
+WHITESPACE  119..120   | |
+LEFT_CURLY  120..121   |{|
+WHITESPACE  121..122   | |
+RIGHT_CURLY 122..123   |}|
+WHITESPACE  123..124   |\n|

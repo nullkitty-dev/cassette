@@ -1,0 +1,26 @@
+[versions]
+# 5.14.x, not 6.x: jqwik 1.10.1 compiles against JUnit Platform 1.14.x.
+junit   = "5.14.4"
+jqwik   = "1.10.1"
+assertj = "3.27.7"
+jmh     = "1.37"
+
+[libraries]
+junit-bom               = { module = "org.junit:junit-bom", version.ref = "junit" }
+junit-jupiter           = { module = "org.junit.jupiter:junit-jupiter" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
+
+jqwik = { module = "net.jqwik:jqwik", version.ref = "jqwik" }
+
+assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj" }
+
+# Nothing references these two: the jmh plugin resolves both itself from `jmhVersion`, which
+# `cassette.benchmarks` sets from the version above. They are here so a bump is one edit if a
+# benchmark ever needs to name them directly.
+jmh-core                 = { module = "org.openjdk.jmh:jmh-core", version.ref = "jmh" }
+jmh-generator-annprocess = { module = "org.openjdk.jmh:jmh-generator-annprocess", version.ref = "jmh" }
+
+[plugins]
+jmh = { id = "me.champeau.jmh", version = "0.7.3" }
+graalvm-native = { id = "org.graalvm.buildtools.native", version = "0.10.6" }
+jreleaser = { id = "org.jreleaser", version = "1.25.0" }

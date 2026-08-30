@@ -1,0 +1,5 @@
+.a { }
+--x:hover { } /* Ambiguous "rule" */
+.b { }
+--y:hover { ] } /* Ambiguous "rule", with a mismatched bracket */
+.c { }

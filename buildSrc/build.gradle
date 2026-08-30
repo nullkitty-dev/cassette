@@ -1,0 +1,19 @@
+plugins {
+    id 'groovy-gradle-plugin'
+}
+
+// A precompiled script plugin can only apply plugins its own build has on the compile classpath,
+// so every ecosystem plugin one of them applies is a dependency here. What it needs is the
+// *marker* artifact the portal publishes per plugin id, `<id>:<id>.gradle.plugin`, not the
+// plugin's real coordinate. Built from the catalog, since `libs.plugins.*` yields a
+// PluginDependency and only a `plugins {}` block accepts one of those.
+def marker = { plugin ->
+    def it = plugin.get()
+    "${it.pluginId}:${it.pluginId}.gradle.plugin:${it.version.requiredVersion}"
+}
+
+dependencies {
+    implementation marker(libs.plugins.jmh)
+    implementation marker(libs.plugins.graalvm.native)
+    implementation marker(libs.plugins.jreleaser)
+}

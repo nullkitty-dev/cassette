@@ -1,0 +1,11 @@
+* { box-sizing: border-box }
+div.card#main:hover { top: 0 }
+svg|circle, *|use, |defs { fill: none }
+main > article + aside ~ p em { top: 0 }
+col || td { top: 0 }
+a[href], a[href^="https"], a[lang|="en" i], a[data-x$='y' s] { top: 0 }
+p:is(.a, #b > c):not(.d):has(> img) { top: 0 }
+li:nth-child(2n+1 of .visible):where(#ignored) { top: 0 }
+q::before, q:after, ::part(label), ::slotted(span) { top: 0 }
+.a/* joined */.b { top: 0 }
+.card { & .title, &:hover > * { top: 0 } }

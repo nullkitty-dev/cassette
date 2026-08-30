@@ -1,0 +1,30 @@
+Stylesheet 0..111
+  StyleRule 96..110
+    SelectorList 96..98
+      Complex 96..98 (0,1,0)
+        Compound 96..98
+          Class |b|
+    Declaration |left| 101..108
+      Number |0| = 0 integer
+  StyleRule 62..75
+    SelectorList 62..64
+      Complex 62..64 (0,1,0)
+        Compound 62..64
+          Class |a|
+    Declaration |top| 67..73
+      Number |0| = 0 integer
+  StyleRule 20..41
+    SelectorList 20..26
+      Complex 20..26 (0,1,0)
+        Compound 20..26
+          Class |entry|
+    Declaration |color| 29..39
+      Ident |red|
+
+diagnostics
+  ERROR 76..95 @import cycle: index.css -> a.css -> b.css -> a.css
+
+segments
+  0..42 index.css
+  42..76 a.css imported from index.css@0
+  76..111 b.css imported from a.css@0

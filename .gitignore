@@ -1,0 +1,34 @@
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Raw JMH output. Deliberately outside build/, which is not durable — see
+# cassette.benchmarks.gradle. A run worth keeping is promoted into benchmarks/ by hand,
+# because each file there owes a row in benchmarks/README.md.
+jmh-results/
+
+# jqwik's failing-sample database (redirected into build/, but not on stale checkouts)
+.jqwik-database
+
+# Eclipse (Buildship imports the Gradle build directly; these are generated)
+.project
+.classpath
+.settings/
+bin/
+
+# IntelliJ / VS Code
+.idea/
+*.iml
+.vscode/
+
+# macOS
+.DS_Store
+
+# Agent guidance and memory. Kept locally, not published: this repository is public.
+CLAUDE.md
+.claude/
+
+# Vendored benchmark corpus — large, fetched per src/jmh/resources/corpus/README.md
+src/jmh/resources/corpus/medium-bootstrap.css
+src/jmh/resources/corpus/large-generated-tailwind.css

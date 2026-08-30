@@ -1,0 +1,8 @@
+Stylesheet 0..28
+  StyleRule 5..27
+    SelectorList 5..10
+      Complex 5..10 (0,0,1)
+        Compound 5..10
+          Type |--foo|
+    Declaration |color| 13..24
+      Ident |blue|

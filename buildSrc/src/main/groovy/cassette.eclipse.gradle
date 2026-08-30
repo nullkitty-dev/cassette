@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+    id 'eclipse'
+}
+
+// The module system is hidden from the Eclipse IDE.
+//
+// Gradle compiles tests, benchmarks and the CLI off the module path, and Eclipse has no way to
+// know that: JDT derives modularity from the presence of a `module-info.java`, project-wide,
+// and then puts every dependency on the module path. The whitebox tests sit in the module's own
+// packages, so JDT patches them into a module that requires nothing but java.base, where jqwik
+// and assertj are unreadable. The symptom is every assertion unresolved in the IDE with a green
+// `./gradlew build` beside it.
+eclipse {
+    jdt {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+    }
+    // The classpath is Gradle's to own, so the copy on disk is discarded rather than merged
+    // into. Without this the stale entry carries an exclude the fresh one does not, the merge
+    // cannot match them, and every `./gradlew eclipse` adds another `src/main/java`.
+    classpath.file.beforeMerged { classpath -> classpath.entries.clear() }
+
+    classpath.file.whenMerged { classpath ->
+        classpath.entries.findAll { it.kind == 'src' && it.path == 'src/main/java' }.each {
+            it.excludes = (it.excludes + 'module-info.java').unique()
+        }
+        classpath.entries.findAll { it.kind == 'lib' }.each { entry ->
+            entry.entryAttributes['module'] = 'false'
+
+            def usedBy = (entry.entryAttributes['gradle_used_by_scope'] ?: '').tokenize(',')
+            if (usedBy && usedBy.every { it == 'test' || it == 'jmh' }) {
+                entry.entryAttributes['test'] = 'true'
+            }
+        }
+    }
+}

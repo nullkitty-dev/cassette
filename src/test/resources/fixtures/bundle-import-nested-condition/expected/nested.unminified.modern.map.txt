@@ -1,0 +1,6 @@
+1:2 -> inner.css:0:0  «.inner { top: 2 }»
+2:4 -> inner.css:0:9  «top: 2 }»
+5:2 -> outer.css:1:0  «.outer { top: 1 }»
+6:4 -> outer.css:1:9  «top: 1 }»
+10:0 -> index.css:1:0  «.entry { top: 0 }»
+11:2 -> index.css:1:9  «top: 0 }»

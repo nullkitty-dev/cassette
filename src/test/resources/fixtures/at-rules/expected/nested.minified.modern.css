@@ -1,0 +1,1 @@
+@charset "utf-8";@import url("base.css") screen;@layer base,components;@layer base{html{margin:0}}@media screen and (min-width:40em){@supports(display:grid){.grid{display:grid}}}@font-face{font-family:"Cassette";src:url(a.woff2) format("woff2");}@keyframes slide{from{left:0}to{left:100%}}@container card (min-width:20em){.title{font-size:2rem}}

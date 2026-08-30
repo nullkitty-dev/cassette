@@ -1,0 +1,12 @@
+Stylesheet 0..93
+  Comment 0..39 | BOM before @charset: the BOM wins |
+  AtRule @charset 40..62 statement
+    prelude
+      String |iso-8859-2|
+  StyleRule 63..92
+    SelectorList 63..71
+      Complex 63..71 (0,1,0)
+        Compound 63..71
+          Class |café|
+    Declaration |content| 73..90
+      String |café|

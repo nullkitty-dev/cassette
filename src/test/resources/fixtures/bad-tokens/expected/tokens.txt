@@ -1,0 +1,26 @@
+IDENT       0..1       |a|
+WHITESPACE  1..2       | |
+LEFT_CURLY  2..3       |{|
+WHITESPACE  3..4       | |
+IDENT       4..14      |background|
+COLON       14..15     |:|
+WHITESPACE  15..16     | |
+BAD_URL     16..30     |url(two words)|
+SEMICOLON   30..31     |;|
+WHITESPACE  31..32     | |
+IDENT       32..37     |color|
+COLON       37..38     |:|
+WHITESPACE  38..39     | |
+IDENT       39..42     |red|
+WHITESPACE  42..43     | |
+RIGHT_CURLY 43..44     |}|
+WHITESPACE  44..45     |\n|
+IDENT       45..46     |b|
+WHITESPACE  46..47     | |
+LEFT_CURLY  47..48     |{|
+WHITESPACE  48..49     | |
+IDENT       49..60     |font-family|
+COLON       60..61     |:|
+WHITESPACE  61..62     | |
+BAD_STRING  62..89     |"unterminated; color: red }| value=|unterminated; color: red }|
+WHITESPACE  89..90     |\n|

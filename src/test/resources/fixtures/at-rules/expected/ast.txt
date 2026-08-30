@@ -1,0 +1,106 @@
+Stylesheet 0..425
+  AtRule @charset 0..17 statement
+    prelude
+      String |utf-8|
+  AtRule @import 18..49 statement
+    prelude
+      Function |url| 26..41
+        String |base.css|
+      Whitespace
+      Ident |screen|
+  AtRule @layer 50..74 statement
+    prelude
+      Ident |base|
+      Punctuation |,|
+      Whitespace
+      Ident |components|
+  ConditionalGroupRule @layer 76..112
+    prelude
+      Ident |base|
+    StyleRule 92..110
+      SelectorList 92..96
+        Complex 92..96 (0,0,1)
+          Compound 92..96
+            Type |html|
+      Declaration |margin| 99..108
+        Number |0| = 0 integer
+  ConditionalGroupRule @media 114..215
+    prelude
+      Ident |screen|
+      Whitespace
+      Ident |and|
+      Whitespace
+      Block |()| 132..149
+        Ident |min-width|
+        Punctuation |:|
+        Whitespace
+        Dimension |40| unit=|em| = 40
+    ConditionalGroupRule @supports 154..213
+      prelude
+        Block |()| 164..179
+          Ident |display|
+          Punctuation |:|
+          Whitespace
+          Ident |grid|
+      StyleRule 186..209
+        SelectorList 186..191
+          Complex 186..191 (0,1,0)
+            Compound 186..191
+              Class |grid|
+        Declaration |display| 194..207
+          Ident |grid|
+  AtRule @font-face 217..295
+    block
+      Ident |font-family|
+      Punctuation |:|
+      Whitespace
+      String |Cassette|
+      Punctuation |;|
+      Whitespace
+      Ident |src|
+      Punctuation |:|
+      Whitespace
+      Url |a.woff2|
+      Whitespace
+      Function |format| 277..292
+        String |woff2|
+      Punctuation |;|
+  AtRule @keyframes 297..356
+    prelude
+      Ident |slide|
+    block
+      Ident |from|
+      Whitespace
+      Block |{}| 323..334
+        Whitespace
+        Ident |left|
+        Punctuation |:|
+        Whitespace
+        Number |0| = 0 integer
+        Whitespace
+      Whitespace
+      Ident |to|
+      Whitespace
+      Block |{}| 340..354
+        Whitespace
+        Ident |left|
+        Punctuation |:|
+        Whitespace
+        Percentage |100| = 100
+        Whitespace
+  ConditionalGroupRule @container 358..424
+    prelude
+      Ident |card|
+      Whitespace
+      Block |()| 374..391
+        Ident |min-width|
+        Punctuation |:|
+        Whitespace
+        Dimension |20| unit=|em| = 20
+    StyleRule 396..422
+      SelectorList 396..402
+        Complex 396..402 (0,1,0)
+          Compound 396..402
+            Class |title|
+      Declaration |font-size| 405..420
+        Dimension |2| unit=|rem| = 2

@@ -1,0 +1,32 @@
+DELIM       0..1       |.|
+IDENT       1..7       |caf\\e9| value=|café| escaped
+COMMA       7..8       |,|
+WHITESPACE  8..9       | |
+HASH        9..20      |#main\\2603 | value=|main☃| id escaped
+LEFT_CURLY  20..21     |{|
+WHITESPACE  21..24     |\n  |
+IDENT       24..31     |content|
+COLON       31..32     |:|
+WHITESPACE  32..33     | |
+STRING      33..59     |"quoted \\201c curly \\201d"| value=|quoted “curly ”| escaped
+SEMICOLON   59..60     |;|
+WHITESPACE  60..63     |\n  |
+IDENT       63..74     |font-family|
+COLON       74..75     |:|
+WHITESPACE  75..76     | |
+BAD_STRING  76..90     |"unterminated;| value=|unterminated;|
+WHITESPACE  90..93     |\n  |
+IDENT       93..103    |background|
+COLON       103..104   |:|
+WHITESPACE  104..105   | |
+URL         105..126   |url(  images/a.png  )| value=|images/a.png|
+WHITESPACE  126..127   | |
+FUNCTION    127..131   |url(| value=|url|
+STRING      131..138   |"b.png"| value=|b.png|
+RIGHT_PAREN 138..139   |)|
+WHITESPACE  139..140   | |
+BAD_URL     140..152   |url(bad url)|
+SEMICOLON   152..153   |;|
+WHITESPACE  153..154   |\n|
+RIGHT_CURLY 154..155   |}|
+WHITESPACE  155..156   |\n|

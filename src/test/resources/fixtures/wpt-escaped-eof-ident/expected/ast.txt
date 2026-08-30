@@ -1,0 +1,11 @@
+Stylesheet 0..16
+  StyleRule 0..16
+    SelectorList 0..3
+      Complex 0..3 (0,0,1)
+        Compound 0..3
+          Type |foo|
+    Declaration |--foo| 6..16
+      Ident |foo�|
+
+diagnostics
+  ERROR 4..16 unclosed block in style rule

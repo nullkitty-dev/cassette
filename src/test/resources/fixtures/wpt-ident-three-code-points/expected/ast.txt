@@ -1,0 +1,47 @@
+Stylesheet 0..256
+  StyleRule 59..91
+    SelectorList 59..63
+      Complex 59..63 (1,0,0)
+        Compound 59..63
+          Id |--3|
+    Declaration |background-color| 66..89
+      Ident |green|
+  StyleRule 92..125
+    SelectorList 92..97
+      Complex 92..97 (1,0,0)
+        Compound 92..97
+          Id |---4|
+    Declaration |background-color| 100..123
+      Ident |green|
+  StyleRule 126..156
+    SelectorList 126..128
+      Complex 126..128 (1,0,0)
+        Compound 126..128
+          Id |a|
+    Declaration |background-color| 131..154
+      Ident |green|
+  StyleRule 157..188
+    SelectorList 157..160
+      Complex 157..160 (1,0,0)
+        Compound 157..160
+          Id |-b|
+    Declaration |background-color| 163..186
+      Ident |green|
+  StyleRule 189..221
+    SelectorList 189..193
+      Complex 189..193 (1,0,0)
+        Compound 189..193
+          Id |--c|
+    Declaration |background-color| 196..219
+      Ident |green|
+  StyleRule 222..255
+    SelectorList 222..227
+      Complex 222..227 (1,0,0)
+        Compound 222..227
+          Id |---d|
+    Declaration |background-color| 230..253
+      Ident |green|
+
+diagnostics
+  ERROR 0..2 '#1' is not a valid id selector
+  ERROR 29..32 '#-2' is not a valid id selector

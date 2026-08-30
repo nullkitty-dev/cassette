@@ -1,0 +1,21 @@
+Stylesheet 0..113
+  StyleRule 0..112
+    SelectorList 0..4
+      Complex 0..4 (0,1,0)
+        Compound 0..4
+          Class |foo|
+    Declaration |line-height| 9..25
+      Number |1.0| = 1
+    Declaration |line-height| 29..44
+      Number |.1| = 0.1
+    Declaration |line-height| 48..63
+      Number |1| = 1 integer
+      Delim |.|
+    Declaration |width| 67..79
+      Dimension |1.0| unit=|px| = 1
+    Declaration |width| 83..94
+      Dimension |.1| unit=|px| = 0.1
+    Declaration |width| 98..109
+      Number |1| = 1 integer
+      Delim |.|
+      Ident |px|

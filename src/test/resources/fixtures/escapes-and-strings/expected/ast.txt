@@ -1,0 +1,27 @@
+Stylesheet 0..156
+  StyleRule 0..155
+    SelectorList 0..20
+      Complex 0..7 (0,1,0)
+        Compound 0..7
+          Class |café|
+      Complex 9..20 (1,0,0)
+        Compound 9..20
+          Id |main☃|
+    Declaration |content| 24..59
+      String |quoted “curly ”|
+    Declaration |font-family| 63..152
+      BadString
+      Whitespace
+      Ident |background|
+      Punctuation |:|
+      Whitespace
+      Url |images/a.png|
+      Whitespace
+      Function |url| 127..139
+        String |b.png|
+      Whitespace
+      BadUrl
+
+diagnostics
+  ERROR 76..90 unterminated string, ended by a newline
+  ERROR 140..152 malformed url()

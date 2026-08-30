@@ -1,0 +1,20 @@
+Stylesheet 0..76
+  ConditionalGroupRule @media 0..76
+    prelude
+      Block |()| 7..24
+        Ident |min-width|
+        Punctuation |:|
+        Whitespace
+        Dimension |40| unit=|em| = 40
+    StyleRule 29..47
+      SelectorList 29..30
+        Complex 29..30 (0,0,1)
+          Compound 29..30
+            Type |a|
+      Declaration |color| 33..43
+        Ident |red|
+    Comment 50..76 | unterminated comment\n}\n| unterminated
+
+diagnostics
+  ERROR 50..76 unterminated comment
+  ERROR 25..76 unclosed block in '@media'

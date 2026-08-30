@@ -1,0 +1,172 @@
+Stylesheet 0..472
+  StyleRule 0..28
+    SelectorList 0..1
+      Complex 0..1 (0,0,0)
+        Compound 0..1
+          Type |*|
+    Declaration |box-sizing| 4..26
+      Ident |border-box|
+  StyleRule 29..59
+    SelectorList 29..48
+      Complex 29..48 (1,2,1)
+        Compound 29..48
+          Type |div|
+          Class |card|
+          Id |main|
+          PseudoClass |hover|
+    Declaration |top| 51..57
+      Number |0| = 0 integer
+  StyleRule 60..99
+    SelectorList 60..84
+      Complex 60..70 (0,0,1)
+        Compound 60..70
+          Type ns=|svg| |circle|
+      Complex 72..77 (0,0,1)
+        Compound 72..77
+          Type ns=|*| |use|
+      Complex 79..84 (0,0,1)
+        Compound 79..84
+          Type ns=|| |defs|
+    Declaration |fill| 87..97
+      Ident |none|
+  StyleRule 100..140
+    SelectorList 100..129
+      Complex 100..129 (0,0,5)
+        Compound 100..104
+          Type |main|
+        Compound 107..114 CHILD
+          Type |article|
+        Compound 117..122 NEXT_SIBLING
+          Type |aside|
+        Compound 125..126 SUBSEQUENT_SIBLING
+          Type |p|
+        Compound 127..129 DESCENDANT
+          Type |em|
+    Declaration |top| 132..138
+      Number |0| = 0 integer
+  StyleRule 141..161
+    SelectorList 141..150
+      Complex 141..150 (0,0,2)
+        Compound 141..144
+          Type |col|
+        Compound 148..150 COLUMN
+          Type |td|
+    Declaration |top| 153..159
+      Number |0| = 0 integer
+  StyleRule 162..233
+    SelectorList 162..222
+      Complex 162..169 (0,1,1)
+        Compound 162..169
+          Type |a|
+          Attribute |href|
+      Complex 171..187 (0,1,1)
+        Compound 171..187
+          Type |a|
+          Attribute |href| PREFIX |https|
+      Complex 189..204 (0,1,1)
+        Compound 189..204
+          Type |a|
+          Attribute |lang| DASH |en| i
+      Complex 206..222 (0,1,1)
+        Compound 206..222
+          Type |a|
+          Attribute |data-x| SUFFIX |y| s
+    Declaration |top| 225..231
+      Number |0| = 0 integer
+  StyleRule 234..280
+    SelectorList 234..269
+      Complex 234..269 (1,1,3)
+        Compound 234..269
+          Type |p|
+          PseudoClass |is| functional
+            SelectorList 239..249
+              Complex 239..241 (0,1,0)
+                Compound 239..241
+                  Class |a|
+              Complex 243..249 (1,0,1)
+                Compound 243..245
+                  Id |b|
+                Compound 248..249 CHILD
+                  Type |c|
+          PseudoClass |not| functional
+            SelectorList 255..257
+              Complex 255..257 (0,1,0)
+                Compound 255..257
+                  Class |d|
+          PseudoClass |has| functional
+            SelectorList 263..268
+              Complex 263..268 (0,0,1)
+                Compound 265..268 CHILD
+                  Type |img|
+    Declaration |top| 272..278
+      Number |0| = 0 integer
+  StyleRule 281..338
+    SelectorList 281..327
+      Complex 281..327 (0,2,1)
+        Compound 281..327
+          Type |li|
+          PseudoClass |nth-child| functional
+            arguments
+              Dimension |2| unit=|n| = 2
+              Number |+1| = 1 integer
+            SelectorList 302..310
+              Complex 302..310 (0,1,0)
+                Compound 302..310
+                  Class |visible|
+          PseudoClass |where| functional
+            SelectorList 318..326
+              Complex 318..326 (1,0,0)
+                Compound 318..326
+                  Id |ignored|
+    Declaration |top| 330..336
+      Number |0| = 0 integer
+  StyleRule 339..400
+    SelectorList 339..389
+      Complex 339..348 (0,0,2)
+        Compound 339..348
+          Type |q|
+          PseudoElement ::|before|
+      Complex 350..357 (0,0,2)
+        Compound 350..357
+          Type |q|
+          PseudoElement :|after|
+      Complex 359..372 (0,0,1)
+        Compound 359..372
+          PseudoElement ::|part| functional
+            arguments
+              Ident |label|
+      Complex 374..389 (0,0,1)
+        Compound 374..389
+          PseudoElement ::|slotted| functional
+            arguments
+              Ident |span|
+    Declaration |top| 392..398
+      Number |0| = 0 integer
+  StyleRule 401..428
+    SelectorList 401..417
+      Complex 401..417 (0,2,0)
+        Compound 401..417
+          Class |a|
+          Class |b|
+    Declaration |top| 420..426
+      Number |0| = 0 integer
+  StyleRule 429..471
+    SelectorList 429..434
+      Complex 429..434 (0,1,0)
+        Compound 429..434
+          Class |card|
+    StyleRule 437..469
+      SelectorList 437..458
+        Complex 437..445 (0,1,0)
+          Compound 437..438
+            Nesting
+          Compound 439..445 DESCENDANT
+            Class |title|
+        Complex 447..458 (0,1,0)
+          Compound 447..454
+            Nesting
+            PseudoClass |hover|
+          Compound 457..458 CHILD
+            Type |*|
+      Declaration |top| 461..467
+        Number |0| = 0 integer

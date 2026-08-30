@@ -1,0 +1,25 @@
+AT_KEYWORD  0..6       |@media| value=|media|
+WHITESPACE  6..7       | |
+LEFT_PAREN  7..8       |(|
+IDENT       8..17      |min-width|
+COLON       17..18     |:|
+WHITESPACE  18..19     | |
+DIMENSION   19..23     |40em| value=|em| number=40 integer
+RIGHT_PAREN 23..24     |)|
+WHITESPACE  24..25     | |
+LEFT_CURLY  25..26     |{|
+WHITESPACE  26..29     |\n  |
+IDENT       29..30     |a|
+WHITESPACE  30..31     | |
+LEFT_CURLY  31..32     |{|
+WHITESPACE  32..33     | |
+IDENT       33..38     |color|
+COLON       38..39     |:|
+WHITESPACE  39..40     | |
+IDENT       40..43     |red|
+SEMICOLON   43..44     |;|
+SEMICOLON   44..45     |;|
+WHITESPACE  45..46     | |
+RIGHT_CURLY 46..47     |}|
+WHITESPACE  47..50     |\n  |
+COMMENT     50..76     |/* unterminated comment\n}\n| value=| unterminated comment\n}\n| unterminated

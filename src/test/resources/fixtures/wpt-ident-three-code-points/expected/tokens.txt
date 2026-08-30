@@ -1,0 +1,88 @@
+HASH        0..2       |#1| value=|1|
+WHITESPACE  2..3       | |
+LEFT_CURLY  3..4       |{|
+WHITESPACE  4..5       | |
+IDENT       5..21      |background-color|
+COLON       21..22     |:|
+WHITESPACE  22..23     | |
+IDENT       23..26     |red|
+WHITESPACE  26..27     | |
+RIGHT_CURLY 27..28     |}|
+WHITESPACE  28..29     |\n|
+HASH        29..32     |#-2| value=|-2|
+WHITESPACE  32..33     | |
+LEFT_CURLY  33..34     |{|
+WHITESPACE  34..35     | |
+IDENT       35..51     |background-color|
+COLON       51..52     |:|
+WHITESPACE  52..53     | |
+IDENT       53..56     |red|
+WHITESPACE  56..57     | |
+RIGHT_CURLY 57..58     |}|
+WHITESPACE  58..59     |\n|
+HASH        59..63     |#--3| value=|--3| id
+WHITESPACE  63..64     | |
+LEFT_CURLY  64..65     |{|
+WHITESPACE  65..66     | |
+IDENT       66..82     |background-color|
+COLON       82..83     |:|
+WHITESPACE  83..84     | |
+IDENT       84..89     |green|
+WHITESPACE  89..90     | |
+RIGHT_CURLY 90..91     |}|
+WHITESPACE  91..92     |\n|
+HASH        92..97     |#---4| value=|---4| id
+WHITESPACE  97..98     | |
+LEFT_CURLY  98..99     |{|
+WHITESPACE  99..100    | |
+IDENT       100..116   |background-color|
+COLON       116..117   |:|
+WHITESPACE  117..118   | |
+IDENT       118..123   |green|
+WHITESPACE  123..124   | |
+RIGHT_CURLY 124..125   |}|
+WHITESPACE  125..126   |\n|
+HASH        126..128   |#a| value=|a| id
+WHITESPACE  128..129   | |
+LEFT_CURLY  129..130   |{|
+WHITESPACE  130..131   | |
+IDENT       131..147   |background-color|
+COLON       147..148   |:|
+WHITESPACE  148..149   | |
+IDENT       149..154   |green|
+WHITESPACE  154..155   | |
+RIGHT_CURLY 155..156   |}|
+WHITESPACE  156..157   |\n|
+HASH        157..160   |#-b| value=|-b| id
+WHITESPACE  160..161   | |
+LEFT_CURLY  161..162   |{|
+WHITESPACE  162..163   | |
+IDENT       163..179   |background-color|
+COLON       179..180   |:|
+WHITESPACE  180..181   | |
+IDENT       181..186   |green|
+WHITESPACE  186..187   | |
+RIGHT_CURLY 187..188   |}|
+WHITESPACE  188..189   |\n|
+HASH        189..193   |#--c| value=|--c| id
+WHITESPACE  193..194   | |
+LEFT_CURLY  194..195   |{|
+WHITESPACE  195..196   | |
+IDENT       196..212   |background-color|
+COLON       212..213   |:|
+WHITESPACE  213..214   | |
+IDENT       214..219   |green|
+WHITESPACE  219..220   | |
+RIGHT_CURLY 220..221   |}|
+WHITESPACE  221..222   |\n|
+HASH        222..227   |#---d| value=|---d| id
+WHITESPACE  227..228   | |
+LEFT_CURLY  228..229   |{|
+WHITESPACE  229..230   | |
+IDENT       230..246   |background-color|
+COLON       246..247   |:|
+WHITESPACE  247..248   | |
+IDENT       248..253   |green|
+WHITESPACE  253..254   | |
+RIGHT_CURLY 254..255   |}|
+WHITESPACE  255..256   |\n|

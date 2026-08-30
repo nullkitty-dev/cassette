@@ -1,0 +1,21 @@
+Stylesheet 0..152
+  Comment 0..64 | Compound nesting with an explicit &, over a selector list. |
+  StyleRule 65..151
+    SelectorList 65..78
+      Complex 65..70 (0,1,0)
+        Compound 65..70
+          Class |card|
+      Complex 72..78 (0,1,0)
+        Compound 72..78
+          Class |panel|
+    Declaration |color| 85..99
+      Hash |336699|
+    StyleRule 106..149
+      SelectorList 106..114
+        Complex 106..114 (0,1,0)
+          Compound 106..107
+            Nesting
+          Compound 108..114 DESCENDANT
+            Class |title|
+      Declaration |font-weight| 125..142
+        Ident |bold|

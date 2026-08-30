@@ -1,0 +1,178 @@
+/*
+ * Small hand-written corpus entry — the latency-dominated end of the benchmark set.
+ * Deliberately messy: nesting, vendor prefixes, custom properties, escapes, unusual
+ * selectors, and the long value lists real stylesheets are full of.
+ */
+
+@charset "utf-8";
+
+@layer reset, base, components;
+
+:root {
+  --brand-hue: 217;
+  --brand: hsl(var(--brand-hue) 89% 51%);
+  --space: clamp(0.5rem, 0.25rem + 1vw, 1.5rem);
+  --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --shadow: 0 1px 2px rgb(0 0 0 / 6%), 0 4px 12px rgb(0 0 0 / 8%);
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    font-family: var(--font-stack);
+    line-height: 1.5;
+  }
+
+  body {
+    margin: 0;
+    color: #1a1a1a;
+    background: #fff;
+  }
+
+  a:not([class]) {
+    color: var(--brand);
+    text-decoration-skip-ink: auto;
+
+    &:hover,
+    &:focus-visible {
+      text-decoration-thickness: 2px;
+    }
+  }
+}
+
+@layer components {
+  .card,
+  .panel {
+    display: grid;
+    gap: var(--space);
+    padding: var(--space);
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+
+    & > .title {
+      margin: 0;
+      font-size: 1.125rem;
+      font-weight: 600;
+    }
+
+    & .body > p:first-of-type::first-line {
+      font-variant-caps: small-caps;
+    }
+
+    &:has(> img) {
+      padding-block-start: 0;
+    }
+  }
+
+  .caf\e9 -menu {
+    content: "caf\e9";
+    quotes: "\201c" "\201d" "\2018" "\2019";
+  }
+
+  .grid {
+    display: -ms-grid;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(14rem, 100%), 1fr));
+    grid-template-areas:
+      "head head"
+      "nav  main"
+      "foot foot";
+  }
+
+  .btn {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: linear-gradient(to bottom, #fff 0%, #f2f2f2 100%);
+    transition: background-color 120ms ease-in-out, box-shadow 120ms ease-in-out, transform 120ms ease-in-out;
+  }
+
+  .btn[data-variant="primary" i]:not(:disabled):active {
+    transform: translateY(1px);
+  }
+
+  input[type="checkbox"]:checked + label,
+  ul li:nth-child(2n + 1) > span ~ em {
+    font-weight: 700;
+  }
+}
+
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .sheet {
+    -webkit-backdrop-filter: blur(12px) saturate(1.4);
+    backdrop-filter: blur(12px) saturate(1.4);
+    background: rgb(255 255 255 / 72%);
+  }
+}
+
+@container card (inline-size > 30rem) {
+  .card {
+    grid-template-columns: 8rem 1fr;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --brand: hsl(var(--brand-hue) 89% 68%);
+  }
+
+  body {
+    color: #f2f2f2;
+    background: #101114;
+  }
+}
+
+@media screen and (min-width: 40em), print and (orientation: landscape) {
+  .grid {
+    gap: calc(var(--space) * 1.5);
+  }
+}
+
+@keyframes pulse {
+  from {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@font-face {
+  font-family: "Inter var";
+  src: url("/fonts/inter.woff2") format("woff2-variations"),
+       url(/fonts/inter.woff) format("woff");
+  font-weight: 100 900;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+2000-206F;
+}
+
+@page :first {
+  margin: 2cm 1.5cm;
+}
+
+.u-hidden { display: none !important }
+.u-mt-0 { margin-top: 0 }
+.u-mt-1 { margin-top: .25rem }
+.u-mt-2 { margin-top: +0.5rem }
+.u-mt-3 { margin-top: 1e0rem }

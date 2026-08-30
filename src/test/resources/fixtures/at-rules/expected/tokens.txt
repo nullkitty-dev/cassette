@@ -1,0 +1,162 @@
+AT_KEYWORD  0..8       |@charset| value=|charset|
+WHITESPACE  8..9       | |
+STRING      9..16      |"utf-8"| value=|utf-8|
+SEMICOLON   16..17     |;|
+WHITESPACE  17..18     |\n|
+AT_KEYWORD  18..25     |@import| value=|import|
+WHITESPACE  25..26     | |
+FUNCTION    26..30     |url(| value=|url|
+STRING      30..40     |"base.css"| value=|base.css|
+RIGHT_PAREN 40..41     |)|
+WHITESPACE  41..42     | |
+IDENT       42..48     |screen|
+SEMICOLON   48..49     |;|
+WHITESPACE  49..50     |\n|
+AT_KEYWORD  50..56     |@layer| value=|layer|
+WHITESPACE  56..57     | |
+IDENT       57..61     |base|
+COMMA       61..62     |,|
+WHITESPACE  62..63     | |
+IDENT       63..73     |components|
+SEMICOLON   73..74     |;|
+WHITESPACE  74..76     |\n\n|
+AT_KEYWORD  76..82     |@layer| value=|layer|
+WHITESPACE  82..83     | |
+IDENT       83..87     |base|
+WHITESPACE  87..88     | |
+LEFT_CURLY  88..89     |{|
+WHITESPACE  89..92     |\n  |
+IDENT       92..96     |html|
+WHITESPACE  96..97     | |
+LEFT_CURLY  97..98     |{|
+WHITESPACE  98..99     | |
+IDENT       99..105    |margin|
+COLON       105..106   |:|
+WHITESPACE  106..107   | |
+NUMBER      107..108   |0| number=0 integer
+WHITESPACE  108..109   | |
+RIGHT_CURLY 109..110   |}|
+WHITESPACE  110..111   |\n|
+RIGHT_CURLY 111..112   |}|
+WHITESPACE  112..114   |\n\n|
+AT_KEYWORD  114..120   |@media| value=|media|
+WHITESPACE  120..121   | |
+IDENT       121..127   |screen|
+WHITESPACE  127..128   | |
+IDENT       128..131   |and|
+WHITESPACE  131..132   | |
+LEFT_PAREN  132..133   |(|
+IDENT       133..142   |min-width|
+COLON       142..143   |:|
+WHITESPACE  143..144   | |
+DIMENSION   144..148   |40em| value=|em| number=40 integer
+RIGHT_PAREN 148..149   |)|
+WHITESPACE  149..150   | |
+LEFT_CURLY  150..151   |{|
+WHITESPACE  151..154   |\n  |
+AT_KEYWORD  154..163   |@supports| value=|supports|
+WHITESPACE  163..164   | |
+LEFT_PAREN  164..165   |(|
+IDENT       165..172   |display|
+COLON       172..173   |:|
+WHITESPACE  173..174   | |
+IDENT       174..178   |grid|
+RIGHT_PAREN 178..179   |)|
+WHITESPACE  179..180   | |
+LEFT_CURLY  180..181   |{|
+WHITESPACE  181..186   |\n    |
+DELIM       186..187   |.|
+IDENT       187..191   |grid|
+WHITESPACE  191..192   | |
+LEFT_CURLY  192..193   |{|
+WHITESPACE  193..194   | |
+IDENT       194..201   |display|
+COLON       201..202   |:|
+WHITESPACE  202..203   | |
+IDENT       203..207   |grid|
+WHITESPACE  207..208   | |
+RIGHT_CURLY 208..209   |}|
+WHITESPACE  209..212   |\n  |
+RIGHT_CURLY 212..213   |}|
+WHITESPACE  213..214   |\n|
+RIGHT_CURLY 214..215   |}|
+WHITESPACE  215..217   |\n\n|
+AT_KEYWORD  217..227   |@font-face| value=|font-face|
+WHITESPACE  227..228   | |
+LEFT_CURLY  228..229   |{|
+WHITESPACE  229..232   |\n  |
+IDENT       232..243   |font-family|
+COLON       243..244   |:|
+WHITESPACE  244..245   | |
+STRING      245..255   |"Cassette"| value=|Cassette|
+SEMICOLON   255..256   |;|
+WHITESPACE  256..259   |\n  |
+IDENT       259..262   |src|
+COLON       262..263   |:|
+WHITESPACE  263..264   | |
+URL         264..276   |url(a.woff2)| value=|a.woff2|
+WHITESPACE  276..277   | |
+FUNCTION    277..284   |format(| value=|format|
+STRING      284..291   |"woff2"| value=|woff2|
+RIGHT_PAREN 291..292   |)|
+SEMICOLON   292..293   |;|
+WHITESPACE  293..294   |\n|
+RIGHT_CURLY 294..295   |}|
+WHITESPACE  295..297   |\n\n|
+AT_KEYWORD  297..307   |@keyframes| value=|keyframes|
+WHITESPACE  307..308   | |
+IDENT       308..313   |slide|
+WHITESPACE  313..314   | |
+LEFT_CURLY  314..315   |{|
+WHITESPACE  315..318   |\n  |
+IDENT       318..322   |from|
+WHITESPACE  322..323   | |
+LEFT_CURLY  323..324   |{|
+WHITESPACE  324..325   | |
+IDENT       325..329   |left|
+COLON       329..330   |:|
+WHITESPACE  330..331   | |
+NUMBER      331..332   |0| number=0 integer
+WHITESPACE  332..333   | |
+RIGHT_CURLY 333..334   |}|
+WHITESPACE  334..337   |\n  |
+IDENT       337..339   |to|
+WHITESPACE  339..340   | |
+LEFT_CURLY  340..341   |{|
+WHITESPACE  341..342   | |
+IDENT       342..346   |left|
+COLON       346..347   |:|
+WHITESPACE  347..348   | |
+PERCENTAGE  348..352   |100%| value=|100| number=100 integer
+WHITESPACE  352..353   | |
+RIGHT_CURLY 353..354   |}|
+WHITESPACE  354..355   |\n|
+RIGHT_CURLY 355..356   |}|
+WHITESPACE  356..358   |\n\n|
+AT_KEYWORD  358..368   |@container| value=|container|
+WHITESPACE  368..369   | |
+IDENT       369..373   |card|
+WHITESPACE  373..374   | |
+LEFT_PAREN  374..375   |(|
+IDENT       375..384   |min-width|
+COLON       384..385   |:|
+WHITESPACE  385..386   | |
+DIMENSION   386..390   |20em| value=|em| number=20 integer
+RIGHT_PAREN 390..391   |)|
+WHITESPACE  391..392   | |
+LEFT_CURLY  392..393   |{|
+WHITESPACE  393..396   |\n  |
+DELIM       396..397   |.|
+IDENT       397..402   |title|
+WHITESPACE  402..403   | |
+LEFT_CURLY  403..404   |{|
+WHITESPACE  404..405   | |
+IDENT       405..414   |font-size|
+COLON       414..415   |:|
+WHITESPACE  415..416   | |
+DIMENSION   416..420   |2rem| value=|rem| number=2 integer
+WHITESPACE  420..421   | |
+RIGHT_CURLY 421..422   |}|
+WHITESPACE  422..423   |\n|
+RIGHT_CURLY 423..424   |}|
+WHITESPACE  424..425   |\n|

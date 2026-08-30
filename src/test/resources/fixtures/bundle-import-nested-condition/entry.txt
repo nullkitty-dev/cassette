@@ -1,0 +1,2 @@
+# a conditional import of a sheet that itself imports one: the wrapper covers both
+index.css

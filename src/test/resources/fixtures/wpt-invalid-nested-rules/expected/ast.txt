@@ -1,0 +1,16 @@
+Stylesheet 0..43
+  StyleRule 0..42
+    SelectorList 0..2
+      Complex 0..2 (0,1,0)
+        Compound 0..2
+          Class |a|
+    StyleRule 33..40
+      SelectorList 33..37
+        Complex 33..37 (0,1,0)
+          Compound 33..34
+            Nesting
+          Compound 35..37 DESCENDANT
+            Class |c|
+
+diagnostics
+  ERROR 10..11 expected a selector but found '<'

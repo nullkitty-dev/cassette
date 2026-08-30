@@ -1,0 +1,26 @@
+Stylesheet 0..93
+  AtRule @import 42..65 statement
+    prelude
+      Url |theme.css|
+  StyleRule 18..41
+    SelectorList 18..24
+      Complex 18..24 (0,1,0)
+        Compound 18..24
+          Class |reset|
+    Declaration |margin| 29..38
+      Number |0| = 0 integer
+  StyleRule 67..92
+    SelectorList 67..74
+      Complex 67..74 (0,1,0)
+        Compound 67..74
+          Class |button|
+    Declaration |color| 79..89
+      Ident |red|
+
+diagnostics
+  WARNING 42..65 @import "theme.css" was not resolved, so it is left in the output
+  WARNING 42..65 @import moved to the top of the bundle, past 1 rule; an @import may only be preceded by @charset and @layer
+
+segments
+  0..42 reset.css
+  42..93 base/buttons.css

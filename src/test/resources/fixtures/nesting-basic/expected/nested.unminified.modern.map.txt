@@ -1,0 +1,5 @@
+1:0 -> input.css:1:0  «.card,»
+2:0 -> input.css:2:0  «.panel {»
+3:2 -> input.css:3:4  «color: #336699;»
+4:2 -> input.css:5:4  «& .title {»
+5:4 -> input.css:6:8  «font-weight: bold;»

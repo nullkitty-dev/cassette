@@ -1,0 +1,20 @@
+<svg width="66.8" height="20" viewBox="0 0 668 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="jmh: 1.37">
+  <title>jmh: 1.37</title>
+  <linearGradient id="ZijRn" x2="0" y2="100%">
+    <stop offset="0" stop-opacity=".1" stop-color="#EEE"/>
+    <stop offset="1" stop-opacity=".1"/>
+  </linearGradient>
+  <mask id="PovgL"><rect width="668" height="200" rx="30" fill="#FFF"/></mask>
+  <g mask="url(#PovgL)">
+    <rect width="318" height="200" fill="#555"/>
+    <rect width="350" height="200" fill="#B07219" x="318"/>
+    <rect width="668" height="200" fill="url(#ZijRn)"/>
+  </g>
+  <g aria-hidden="true" fill="#fff" text-anchor="start" font-family="Verdana,DejaVu Sans,sans-serif" font-size="110">
+    <text x="60" y="148" textLength="218" fill="#000" opacity="0.25">jmh</text>
+    <text x="50" y="138" textLength="218">jmh</text>
+    <text x="373" y="148" textLength="250" fill="#000" opacity="0.25">1.37</text>
+    <text x="363" y="138" textLength="250">1.37</text>
+  </g>
+  
+</svg>

@@ -1,0 +1,10 @@
+/* Compound nesting with an explicit &, over a selector list. */
+.card,
+.panel {
+  color: #336699;
+}
+
+.card .title,
+.panel .title {
+  font-weight: bold;
+}

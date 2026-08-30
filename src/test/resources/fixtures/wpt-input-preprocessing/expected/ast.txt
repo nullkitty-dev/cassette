@@ -1,0 +1,29 @@
+Stylesheet 0..77
+  StyleRule 0..19
+    SelectorList 0..4
+      Complex 0..4 (0,0,1)
+        Compound 0..4
+          Type |foo�|
+    Declaration |color| 7..17
+      Ident |red|
+  StyleRule 20..39
+    SelectorList 20..24
+      Complex 20..24 (0,0,1)
+        Compound 20..24
+          Type |f�oo|
+    Declaration |color| 27..37
+      Ident |red|
+  StyleRule 40..59
+    SelectorList 40..44
+      Complex 40..44 (0,0,1)
+        Compound 40..44
+          Type |�foo|
+    Declaration |color| 47..57
+      Ident |red|
+  StyleRule 60..76
+    SelectorList 60..61
+      Complex 60..61 (0,0,1)
+        Compound 60..61
+          Type |�|
+    Declaration |color| 64..74
+      Ident |red|

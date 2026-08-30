@@ -1,0 +1,31 @@
+plugins {
+    id 'java-library'
+    id 'cassette.testing'
+    id 'cassette.benchmarks'
+    id 'cassette.cli'
+    id 'cassette.eclipse'
+    // After cassette.cli: the release attaches `cliJar`, which that plugin registers.
+    id 'cassette.publishing'
+}
+
+group = 'dev.nullkitty'
+version = '1.0.0'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+    withSourcesJar()
+    withJavadocJar()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.compilerArgs.addAll(['-Xlint:all', '-Werror'])
+}
+
+tasks.withType(Javadoc).configureEach {
+    options.encoding = 'UTF-8'
+    options.addStringOption('Xdoclint:all,-missing', '-quiet')
+    options.addBooleanOption('Xwerror', true)
+}

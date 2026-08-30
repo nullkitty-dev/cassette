@@ -1,0 +1,51 @@
+Stylesheet 0..160
+  StyleRule 0..19
+    SelectorList 0..4
+      Complex 0..4 (0,1,1)
+        Compound 0..2
+          Class |a|
+        Compound 3..4 DESCENDANT
+          Type |b|
+    Declaration |color| 7..17
+      Ident |red|
+  StyleRule 20..39
+    SelectorList 20..24
+      Complex 20..24 (0,1,1)
+        Compound 20..22
+          Class |a|
+        Compound 23..24 DESCENDANT
+          Type |b|
+    Declaration |color| 27..37
+      Ident |red|
+  StyleRule 40..59
+    SelectorList 40..44
+      Complex 40..44 (0,1,1)
+        Compound 40..42
+          Class |a|
+        Compound 43..44 DESCENDANT
+          Type |b|
+    Declaration |color| 47..57
+      Ident |red|
+  StyleRule 60..79
+    SelectorList 60..64
+      Complex 60..64 (0,1,1)
+        Compound 60..62
+          Class |a|
+        Compound 63..64 DESCENDANT
+          Type |b|
+    Declaration |color| 67..77
+      Ident |red|
+  StyleRule 80..99
+    SelectorList 80..84
+      Complex 80..84 (0,1,1)
+        Compound 80..82
+          Class |a|
+        Compound 83..84 DESCENDANT
+          Type |b|
+    Declaration |color| 87..97
+      Ident |red|
+
+diagnostics
+  ERROR 102..103 expected ',' or end of selector but found ' '
+  ERROR 122..123 expected ',' or end of selector but found '　'
+  ERROR 142..143 expected ',' or end of selector but found ''

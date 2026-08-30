@@ -1,0 +1,4 @@
+@media (min-width: 40em) {
+  a { color: red;; }
+  /* unterminated comment
+}

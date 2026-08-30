@@ -1,0 +1,8 @@
+.foo {
+  line-height: 1.0;
+  line-height: .1;
+  line-height: 1.;
+  width: 1.0px;
+  width: .1px;
+  width: 1.px;
+}

@@ -1,0 +1,44 @@
+IDENT       0..4       |foo�|
+WHITESPACE  4..5       | |
+LEFT_CURLY  5..6       |{|
+WHITESPACE  6..7       | |
+IDENT       7..12      |color|
+COLON       12..13     |:|
+WHITESPACE  13..14     | |
+IDENT       14..17     |red|
+WHITESPACE  17..18     | |
+RIGHT_CURLY 18..19     |}|
+WHITESPACE  19..20     |\n|
+IDENT       20..24     |f�oo|
+WHITESPACE  24..25     | |
+LEFT_CURLY  25..26     |{|
+WHITESPACE  26..27     | |
+IDENT       27..32     |color|
+COLON       32..33     |:|
+WHITESPACE  33..34     | |
+IDENT       34..37     |red|
+WHITESPACE  37..38     | |
+RIGHT_CURLY 38..39     |}|
+WHITESPACE  39..40     |\n|
+IDENT       40..44     |�foo|
+WHITESPACE  44..45     | |
+LEFT_CURLY  45..46     |{|
+WHITESPACE  46..47     | |
+IDENT       47..52     |color|
+COLON       52..53     |:|
+WHITESPACE  53..54     | |
+IDENT       54..57     |red|
+WHITESPACE  57..58     | |
+RIGHT_CURLY 58..59     |}|
+WHITESPACE  59..60     |\n|
+IDENT       60..61     |�|
+WHITESPACE  61..62     | |
+LEFT_CURLY  62..63     |{|
+WHITESPACE  63..64     | |
+IDENT       64..69     |color|
+COLON       69..70     |:|
+WHITESPACE  70..71     | |
+IDENT       71..74     |red|
+WHITESPACE  74..75     | |
+RIGHT_CURLY 75..76     |}|
+WHITESPACE  76..77     |\n|

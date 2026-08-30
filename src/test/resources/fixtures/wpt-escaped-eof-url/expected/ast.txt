@@ -1,0 +1,12 @@
+Stylesheet 0..20
+  StyleRule 0..20
+    SelectorList 0..3
+      Complex 0..3 (0,0,1)
+        Compound 0..3
+          Type |foo|
+    Declaration |--foo| 6..20
+      Url |foo�| unterminated
+
+diagnostics
+  ERROR 12..20 unterminated url() at end of input
+  ERROR 4..20 unclosed block in style rule

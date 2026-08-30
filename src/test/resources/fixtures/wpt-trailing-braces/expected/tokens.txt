@@ -1,0 +1,26 @@
+HASH        0..8       |#target1| value=|target1| id
+WHITESPACE  8..9       | |
+LEFT_CURLY  9..10      |{|
+WHITESPACE  10..13     |\n  |
+IDENT       13..18     |color|
+COLON       18..19     |:|
+IDENT       19..24     |green|
+SEMICOLON   24..25     |;|
+WHITESPACE  25..28     |\n  |
+IDENT       28..33     |color|
+COLON       33..34     |:|
+IDENT       34..37     |red|
+LEFT_CURLY  37..38     |{|
+RIGHT_CURLY 38..39     |}|
+SEMICOLON   39..40     |;|
+WHITESPACE  40..43     |\n  |
+IDENT       43..48     |color|
+COLON       48..49     |:|
+IDENT       49..52     |red|
+WHITESPACE  52..53     | |
+LEFT_CURLY  53..54     |{|
+RIGHT_CURLY 54..55     |}|
+SEMICOLON   55..56     |;|
+WHITESPACE  56..57     |\n|
+RIGHT_CURLY 57..58     |}|
+WHITESPACE  58..59     |\n|

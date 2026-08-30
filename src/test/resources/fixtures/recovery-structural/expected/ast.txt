@@ -1,0 +1,125 @@
+Stylesheet 0..230
+  StyleRule 22..45
+    SelectorList 22..23
+      Complex 22..23 (0,0,1)
+        Compound 22..23
+          Type |a|
+    Declaration |top| 37..43
+      Number |0| = 0 integer
+  StyleRule 46..230
+    SelectorList 46..47
+      Complex 46..47 (0,0,1)
+        Compound 46..47
+          Type |b|
+    Declaration |color| 50..230
+      Function |rgb| 57..230
+        Number |0| = 0 integer
+        Whitespace
+        Number |0| = 0 integer
+        Whitespace
+        Number |0| = 0 integer
+        Punctuation |;|
+        Whitespace
+        Ident |top|
+        Punctuation |:|
+        Whitespace
+        Number |0| = 0 integer
+        Whitespace
+        Punctuation |}|
+        Whitespace
+        AtKeyword @|media|
+        Whitespace
+        Ident |screen|
+        Whitespace
+        Delim |.|
+        Ident |a|
+        Whitespace
+        Block |{}| 94..145
+          Whitespace
+          Ident |--custom|
+          Punctuation |:|
+          Whitespace
+          Block |{}| 106..129
+            Whitespace
+            Ident |still|
+            Whitespace
+            Ident |a|
+            Whitespace
+            Ident |declaration|
+            Whitespace
+          Whitespace
+          Punctuation |;|
+          Whitespace
+          Ident |real|
+          Punctuation |:|
+          Whitespace
+          Ident |value|
+          Whitespace
+        Whitespace
+        Delim |.|
+        Ident |b|
+        Whitespace
+        Block |{}| 149..182
+          Whitespace
+          Delim |&|
+          Whitespace
+          Punctuation |:|
+          Function |is| 154..169
+            Delim |.|
+            Ident |x|
+            Punctuation |,|
+            Whitespace
+            Delim |%|
+            Delim |%|
+            Delim |%|
+            Punctuation |,|
+            Whitespace
+            Delim |.|
+            Ident |y|
+          Whitespace
+          Block |{}| 170..180
+            Whitespace
+            Ident |top|
+            Punctuation |:|
+            Whitespace
+            Number |0| = 0 integer
+            Whitespace
+          Whitespace
+        Whitespace
+        Delim |.|
+        Ident |c|
+        Whitespace
+        Block |{}| 186..217
+          Whitespace
+          AtKeyword @|media|
+          Whitespace
+          Ident |print|
+          Whitespace
+          Block |{}| 201..215
+            Whitespace
+            Ident |color|
+            Punctuation |:|
+            Whitespace
+            Ident |red|
+            Whitespace
+          Whitespace
+        Whitespace
+        Delim |.|
+        Ident |d|
+        Whitespace
+        Block |{}| 221..230
+          Whitespace
+          Ident |top|
+          Punctuation |:|
+          Whitespace
+          Number |0| = 0 integer
+          Whitespace
+
+diagnostics
+  ERROR 0..1 unexpected '}'
+  ERROR 2..6 '#123' is not a valid id selector
+  ERROR 26..36 expected a declaration or a nested rule
+  ERROR 75..76 unmatched }
+  ERROR 221..230 unclosed { } block, which consumed everything after it
+  ERROR 57..230 unclosed function rgb(), which consumed everything after it
+  ERROR 48..230 unclosed block in style rule

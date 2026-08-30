@@ -1,0 +1,19 @@
+HASH        0..8       |#control| value=|control| id
+WHITESPACE  8..9       | |
+LEFT_CURLY  9..10      |{|
+WHITESPACE  10..11     | |
+IDENT       11..27     |background-image|
+COLON       27..28     |:|
+WHITESPACE  28..29     | |
+URL         29..34     |url()| value=||
+WHITESPACE  34..35     | |
+RIGHT_CURLY 35..36     |}|
+WHITESPACE  36..37     |\n|
+HASH        37..48     |#experiment| value=|experiment| id
+WHITESPACE  48..49     | |
+LEFT_CURLY  49..50     |{|
+WHITESPACE  50..51     | |
+IDENT       51..67     |background-image|
+COLON       67..68     |:|
+WHITESPACE  68..69     | |
+URL         69..74     |url(\n| value=|| unterminated

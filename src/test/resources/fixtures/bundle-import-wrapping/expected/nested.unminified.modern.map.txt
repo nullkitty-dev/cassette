@@ -1,0 +1,22 @@
+0:0 -> plain.css:0:0  «.plain { top: 0 }»
+1:2 -> plain.css:0:9  «top: 0 }»
+4:0 -> screen.css:0:0  «.screen { top: 0 }»
+5:2 -> screen.css:0:0  «.screen { top: 0 }»
+6:4 -> screen.css:0:10  «top: 0 }»
+10:0 -> layered.css:0:0  «.layered { top: 0 }»
+11:2 -> layered.css:0:0  «.layered { top: 0 }»
+12:4 -> layered.css:0:11  «top: 0 }»
+16:0 -> anon.css:0:0  «.anon { top: 0 }»
+17:2 -> anon.css:0:0  «.anon { top: 0 }»
+18:4 -> anon.css:0:8  «top: 0 }»
+22:0 -> decl.css:0:0  «.decl { top: 0 }»
+23:2 -> decl.css:0:0  «.decl { top: 0 }»
+24:4 -> decl.css:0:8  «top: 0 }»
+28:0 -> cond.css:0:0  «.cond { top: 0 }»
+29:2 -> cond.css:0:0  «.cond { top: 0 }»
+30:4 -> cond.css:0:8  «top: 0 }»
+34:0 -> all.css:0:0  «.all { top: 0 }»
+35:2 -> all.css:0:0  «.all { top: 0 }»
+36:4 -> all.css:0:0  «.all { top: 0 }»
+37:6 -> all.css:0:0  «.all { top: 0 }»
+38:8 -> all.css:0:7  «top: 0 }»

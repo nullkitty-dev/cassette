@@ -1,0 +1,18 @@
+COMMENT     0..39      |/* BOM before @charset: the BOM wins */| value=| BOM before @charset: the BOM wins |
+WHITESPACE  39..40     |\n|
+AT_KEYWORD  40..48     |@charset| value=|charset|
+WHITESPACE  48..49     | |
+STRING      49..61     |"iso-8859-2"| value=|iso-8859-2|
+SEMICOLON   61..62     |;|
+WHITESPACE  62..63     |\n|
+DELIM       63..64     |.|
+IDENT       64..71     |caf\\e9 | value=|café| escaped
+LEFT_CURLY  71..72     |{|
+WHITESPACE  72..73     | |
+IDENT       73..80     |content|
+COLON       80..81     |:|
+WHITESPACE  81..82     | |
+STRING      82..90     |"caf\\e9"| value=|café| escaped
+WHITESPACE  90..91     | |
+RIGHT_CURLY 91..92     |}|
+WHITESPACE  92..93     |\n|

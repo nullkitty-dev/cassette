@@ -1,0 +1,6 @@
+/* BOM before @charset: the BOM wins */
+@charset "iso-8859-2";
+
+.café {
+  content: "café";
+}

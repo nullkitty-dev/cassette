@@ -1,0 +1,17 @@
+Stylesheet 0..75
+  AtRule @charset 0..17 statement
+    prelude
+      String |utf-8|
+  AtRule @charset 18..35 statement
+    prelude
+      String |utf-8|
+  StyleRule 36..56
+    SelectorList 36..39
+      Complex 36..39 (0,0,1)
+        Compound 36..39
+          Type |foo|
+    Declaration |color| 42..53
+      Ident |blue|
+  AtRule @charset 57..74 statement
+    prelude
+      String |utf-8|

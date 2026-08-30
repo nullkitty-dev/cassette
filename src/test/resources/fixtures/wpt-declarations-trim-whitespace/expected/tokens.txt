@@ -1,0 +1,68 @@
+HASH        0..4       |#foo| value=|foo| id
+WHITESPACE  4..5       | |
+LEFT_CURLY  5..6       |{|
+WHITESPACE  6..11      |\n    |
+IDENT       11..18     |--foo-1|
+COLON       18..19     |:|
+IDENT       19..22     |bar|
+SEMICOLON   22..23     |;|
+WHITESPACE  23..28     |\n    |
+IDENT       28..35     |--foo-2|
+COLON       35..36     |:|
+WHITESPACE  36..37     | |
+IDENT       37..40     |bar|
+SEMICOLON   40..41     |;|
+WHITESPACE  41..46     |\n    |
+IDENT       46..53     |--foo-3|
+COLON       53..54     |:|
+IDENT       54..57     |bar|
+WHITESPACE  57..58     | |
+SEMICOLON   58..59     |;|
+WHITESPACE  59..64     |\n    |
+IDENT       64..71     |--foo-4|
+COLON       71..72     |:|
+WHITESPACE  72..73     | |
+IDENT       73..76     |bar|
+WHITESPACE  76..77     | |
+SEMICOLON   77..78     |;|
+WHITESPACE  78..83     |\n    |
+IDENT       83..90     |--foo-5|
+COLON       90..91     |:|
+WHITESPACE  91..92     | |
+IDENT       92..95     |bar|
+WHITESPACE  95..96     | |
+DELIM       96..97     |!|
+IDENT       97..106    |important|
+SEMICOLON   106..107   |;|
+WHITESPACE  107..112   |\n    |
+IDENT       112..119   |--foo-6|
+COLON       119..120   |:|
+WHITESPACE  120..121   | |
+IDENT       121..124   |bar|
+WHITESPACE  124..125   | |
+DELIM       125..126   |!|
+IDENT       126..135   |important|
+WHITESPACE  135..136   | |
+SEMICOLON   136..137   |;|
+WHITESPACE  137..142   |\n    |
+IDENT       142..149   |--foo-7|
+COLON       149..150   |:|
+IDENT       150..153   |bar|
+DELIM       153..154   |!|
+IDENT       154..163   |important|
+SEMICOLON   163..164   |;|
+WHITESPACE  164..169   |\n    |
+IDENT       169..176   |--foo-8|
+COLON       176..177   |:|
+IDENT       177..180   |bar|
+DELIM       180..181   |!|
+IDENT       181..190   |important|
+WHITESPACE  190..191   | |
+SEMICOLON   191..192   |;|
+WHITESPACE  192..197   |\n    |
+IDENT       197..204   |--foo-9|
+COLON       204..205   |:|
+IDENT       205..208   |bar|
+WHITESPACE  208..209   |\n|
+RIGHT_CURLY 209..210   |}|
+WHITESPACE  210..211   |\n|

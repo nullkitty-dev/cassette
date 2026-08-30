@@ -1,0 +1,58 @@
+IDENT       0..3       |div|
+WHITESPACE  3..4       | |
+LEFT_CURLY  4..5       |{|
+WHITESPACE  5..8       |\n  |
+DELIM       8..9       |.|
+IDENT       9..10      |a|
+WHITESPACE  10..11     | |
+LEFT_CURLY  11..12     |{|
+WHITESPACE  12..13     | |
+RIGHT_CURLY 13..14     |}|
+WHITESPACE  14..17     |\n  |
+IDENT       17..20     |--x|
+COLON       20..21     |:|
+IDENT       21..26     |hover|
+WHITESPACE  26..27     | |
+LEFT_CURLY  27..28     |{|
+WHITESPACE  28..29     | |
+RIGHT_CURLY 29..30     |}|
+WHITESPACE  30..33     |\n  |
+DELIM       33..34     |.|
+IDENT       34..35     |b|
+WHITESPACE  35..36     | |
+LEFT_CURLY  36..37     |{|
+WHITESPACE  37..38     | |
+RIGHT_CURLY 38..39     |}|
+WHITESPACE  39..40     |\n|
+RIGHT_CURLY 40..41     |}|
+WHITESPACE  41..43     |\n\n|
+IDENT       43..50     |section|
+WHITESPACE  50..51     | |
+LEFT_CURLY  51..52     |{|
+WHITESPACE  52..55     |\n  |
+DELIM       55..56     |.|
+IDENT       56..57     |a|
+WHITESPACE  57..58     | |
+LEFT_CURLY  58..59     |{|
+WHITESPACE  59..60     | |
+RIGHT_CURLY 60..61     |}|
+WHITESPACE  61..64     |\n  |
+IDENT       64..67     |--x|
+COLON       67..68     |:|
+IDENT       68..73     |hover|
+WHITESPACE  73..74     | |
+LEFT_CURLY  74..75     |{|
+WHITESPACE  75..76     | |
+RIGHT_SQUARE76..77     |]|
+WHITESPACE  77..78     | |
+RIGHT_CURLY 78..79     |}|
+WHITESPACE  79..82     |\n  |
+DELIM       82..83     |.|
+IDENT       83..84     |b|
+WHITESPACE  84..85     | |
+LEFT_CURLY  85..86     |{|
+WHITESPACE  86..87     | |
+RIGHT_CURLY 87..88     |}|
+WHITESPACE  88..89     |\n|
+RIGHT_CURLY 89..90     |}|
+WHITESPACE  90..91     |\n|

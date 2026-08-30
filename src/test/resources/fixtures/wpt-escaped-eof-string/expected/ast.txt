@@ -1,0 +1,12 @@
+Stylesheet 0..17
+  StyleRule 0..17
+    SelectorList 0..3
+      Complex 0..3 (0,0,1)
+        Compound 0..3
+          Type |foo|
+    Declaration |--foo| 6..17
+      String |foo| unterminated
+
+diagnostics
+  ERROR 12..17 unterminated string at end of input
+  ERROR 4..17 unclosed block in style rule

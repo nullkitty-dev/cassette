@@ -1,0 +1,20 @@
+<svg width="81.1" height="20" viewBox="0 0 811 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="junit: 5.14.4">
+  <title>junit: 5.14.4</title>
+  <linearGradient id="QrnXD" x2="0" y2="100%">
+    <stop offset="0" stop-opacity=".1" stop-color="#EEE"/>
+    <stop offset="1" stop-opacity=".1"/>
+  </linearGradient>
+  <mask id="gthlh"><rect width="811" height="200" rx="30" fill="#FFF"/></mask>
+  <g mask="url(#gthlh)">
+    <rect width="351" height="200" fill="#555"/>
+    <rect width="460" height="200" fill="#25A162" x="351"/>
+    <rect width="811" height="200" fill="url(#QrnXD)"/>
+  </g>
+  <g aria-hidden="true" fill="#fff" text-anchor="start" font-family="Verdana,DejaVu Sans,sans-serif" font-size="110">
+    <text x="60" y="148" textLength="251" fill="#000" opacity="0.25">junit</text>
+    <text x="50" y="138" textLength="251">junit</text>
+    <text x="406" y="148" textLength="360" fill="#000" opacity="0.25">5.14.4</text>
+    <text x="396" y="138" textLength="360">5.14.4</text>
+  </g>
+  
+</svg>

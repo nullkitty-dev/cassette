@@ -1,0 +1,24 @@
+Stylesheet 0..211
+  StyleRule 0..210
+    SelectorList 0..4
+      Complex 0..4 (1,0,0)
+        Compound 0..4
+          Id |foo|
+    Declaration |--foo-1| 11..22
+      Ident |bar|
+    Declaration |--foo-2| 28..40
+      Ident |bar|
+    Declaration |--foo-3| 46..57
+      Ident |bar|
+    Declaration |--foo-4| 64..76
+      Ident |bar|
+    Declaration |--foo-5| 83..106 important
+      Ident |bar|
+    Declaration |--foo-6| 112..135 important
+      Ident |bar|
+    Declaration |--foo-7| 142..163 important
+      Ident |bar|
+    Declaration |--foo-8| 169..190 important
+      Ident |bar|
+    Declaration |--foo-9| 197..208
+      Ident |bar|

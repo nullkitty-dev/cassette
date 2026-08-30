@@ -1,0 +1,48 @@
+Stylesheet 0..91
+  StyleRule 0..41
+    SelectorList 0..3
+      Complex 0..3 (0,0,1)
+        Compound 0..3
+          Type |div|
+    StyleRule 8..14
+      SelectorList 8..10
+        Complex 8..10 (0,1,0)
+          Compound 8..10
+            Class |a|
+    Declaration |--x| 17..39
+      Ident |hover|
+      Whitespace
+      Block |{}| 27..30
+        Whitespace
+      Whitespace
+      Delim |.|
+      Ident |b|
+      Whitespace
+      Block |{}| 36..39
+        Whitespace
+  StyleRule 43..90
+    SelectorList 43..50
+      Complex 43..50 (0,0,1)
+        Compound 43..50
+          Type |section|
+    StyleRule 55..61
+      SelectorList 55..57
+        Complex 55..57 (0,1,0)
+          Compound 55..57
+            Class |a|
+    Declaration |--x| 64..88
+      Ident |hover|
+      Whitespace
+      Block |{}| 74..79
+        Whitespace
+        Punctuation |]|
+        Whitespace
+      Whitespace
+      Delim |.|
+      Ident |b|
+      Whitespace
+      Block |{}| 85..88
+        Whitespace
+
+diagnostics
+  ERROR 76..77 unmatched ]

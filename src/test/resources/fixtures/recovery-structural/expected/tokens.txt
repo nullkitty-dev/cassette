@@ -1,0 +1,145 @@
+RIGHT_CURLY 0..1       |}|
+WHITESPACE  1..2       | |
+HASH        2..6       |#123| value=|123|
+WHITESPACE  6..7       | |
+LEFT_CURLY  7..8       |{|
+WHITESPACE  8..9       | |
+IDENT       9..14      |color|
+COLON       14..15     |:|
+WHITESPACE  15..16     | |
+IDENT       16..19     |red|
+WHITESPACE  19..20     | |
+RIGHT_CURLY 20..21     |}|
+WHITESPACE  21..22     |\n|
+IDENT       22..23     |a|
+WHITESPACE  23..24     | |
+LEFT_CURLY  24..25     |{|
+WHITESPACE  25..26     | |
+IDENT       26..31     |color|
+WHITESPACE  31..32     | |
+IDENT       32..35     |red|
+SEMICOLON   35..36     |;|
+WHITESPACE  36..37     | |
+IDENT       37..40     |top|
+COLON       40..41     |:|
+WHITESPACE  41..42     | |
+NUMBER      42..43     |0| number=0 integer
+WHITESPACE  43..44     | |
+RIGHT_CURLY 44..45     |}|
+WHITESPACE  45..46     |\n|
+IDENT       46..47     |b|
+WHITESPACE  47..48     | |
+LEFT_CURLY  48..49     |{|
+WHITESPACE  49..50     | |
+IDENT       50..55     |color|
+COLON       55..56     |:|
+WHITESPACE  56..57     | |
+FUNCTION    57..61     |rgb(| value=|rgb|
+NUMBER      61..62     |0| number=0 integer
+WHITESPACE  62..63     | |
+NUMBER      63..64     |0| number=0 integer
+WHITESPACE  64..65     | |
+NUMBER      65..66     |0| number=0 integer
+SEMICOLON   66..67     |;|
+WHITESPACE  67..68     | |
+IDENT       68..71     |top|
+COLON       71..72     |:|
+WHITESPACE  72..73     | |
+NUMBER      73..74     |0| number=0 integer
+WHITESPACE  74..75     | |
+RIGHT_CURLY 75..76     |}|
+WHITESPACE  76..77     |\n|
+AT_KEYWORD  77..83     |@media| value=|media|
+WHITESPACE  83..84     | |
+IDENT       84..90     |screen|
+WHITESPACE  90..91     |\n|
+DELIM       91..92     |.|
+IDENT       92..93     |a|
+WHITESPACE  93..94     | |
+LEFT_CURLY  94..95     |{|
+WHITESPACE  95..96     | |
+IDENT       96..104    |--custom|
+COLON       104..105   |:|
+WHITESPACE  105..106   | |
+LEFT_CURLY  106..107   |{|
+WHITESPACE  107..108   | |
+IDENT       108..113   |still|
+WHITESPACE  113..114   | |
+IDENT       114..115   |a|
+WHITESPACE  115..116   | |
+IDENT       116..127   |declaration|
+WHITESPACE  127..128   | |
+RIGHT_CURLY 128..129   |}|
+WHITESPACE  129..130   | |
+SEMICOLON   130..131   |;|
+WHITESPACE  131..132   | |
+IDENT       132..136   |real|
+COLON       136..137   |:|
+WHITESPACE  137..138   | |
+IDENT       138..143   |value|
+WHITESPACE  143..144   | |
+RIGHT_CURLY 144..145   |}|
+WHITESPACE  145..146   |\n|
+DELIM       146..147   |.|
+IDENT       147..148   |b|
+WHITESPACE  148..149   | |
+LEFT_CURLY  149..150   |{|
+WHITESPACE  150..151   | |
+DELIM       151..152   |&|
+WHITESPACE  152..153   | |
+COLON       153..154   |:|
+FUNCTION    154..157   |is(| value=|is|
+DELIM       157..158   |.|
+IDENT       158..159   |x|
+COMMA       159..160   |,|
+WHITESPACE  160..161   | |
+DELIM       161..162   |%|
+DELIM       162..163   |%|
+DELIM       163..164   |%|
+COMMA       164..165   |,|
+WHITESPACE  165..166   | |
+DELIM       166..167   |.|
+IDENT       167..168   |y|
+RIGHT_PAREN 168..169   |)|
+WHITESPACE  169..170   | |
+LEFT_CURLY  170..171   |{|
+WHITESPACE  171..172   | |
+IDENT       172..175   |top|
+COLON       175..176   |:|
+WHITESPACE  176..177   | |
+NUMBER      177..178   |0| number=0 integer
+WHITESPACE  178..179   | |
+RIGHT_CURLY 179..180   |}|
+WHITESPACE  180..181   | |
+RIGHT_CURLY 181..182   |}|
+WHITESPACE  182..183   |\n|
+DELIM       183..184   |.|
+IDENT       184..185   |c|
+WHITESPACE  185..186   | |
+LEFT_CURLY  186..187   |{|
+WHITESPACE  187..188   | |
+AT_KEYWORD  188..194   |@media| value=|media|
+WHITESPACE  194..195   | |
+IDENT       195..200   |print|
+WHITESPACE  200..201   | |
+LEFT_CURLY  201..202   |{|
+WHITESPACE  202..203   | |
+IDENT       203..208   |color|
+COLON       208..209   |:|
+WHITESPACE  209..210   | |
+IDENT       210..213   |red|
+WHITESPACE  213..214   | |
+RIGHT_CURLY 214..215   |}|
+WHITESPACE  215..216   | |
+RIGHT_CURLY 216..217   |}|
+WHITESPACE  217..218   |\n|
+DELIM       218..219   |.|
+IDENT       219..220   |d|
+WHITESPACE  220..221   | |
+LEFT_CURLY  221..222   |{|
+WHITESPACE  222..223   | |
+IDENT       223..226   |top|
+COLON       226..227   |:|
+WHITESPACE  227..228   | |
+NUMBER      228..229   |0| number=0 integer
+WHITESPACE  229..230   |\n|

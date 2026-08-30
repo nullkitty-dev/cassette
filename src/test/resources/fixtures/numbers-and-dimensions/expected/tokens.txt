@@ -1,0 +1,45 @@
+IDENT       0..1       |a|
+WHITESPACE  1..2       | |
+LEFT_CURLY  2..3       |{|
+WHITESPACE  3..6       |\n  |
+IDENT       6..12      |margin|
+COLON       12..13     |:|
+WHITESPACE  13..14     | |
+DIMENSION   14..20     |.500em| value=|em| number=0.5
+WHITESPACE  20..21     | |
+DIMENSION   21..25     |+5px| value=|px| number=5 integer signed
+WHITESPACE  25..26     | |
+PERCENTAGE  26..31     |-2.5%| value=|-2.5| number=-2.5 signed
+WHITESPACE  31..32     | |
+NUMBER      32..35     |1e2| number=100 exponent
+WHITESPACE  35..36     | |
+NUMBER      36..40     |5e-1| number=0.5 exponent
+WHITESPACE  40..41     | |
+NUMBER      41..42     |0| number=0 integer
+WHITESPACE  42..43     | |
+DIMENSION   43..47     |10PX| value=|PX| number=10 integer
+WHITESPACE  47..48     | |
+DIMENSION   48..50     |1e| value=|e| number=1 integer
+SEMICOLON   50..51     |;|
+WHITESPACE  51..54     |\n  |
+IDENT       54..61     |z-index|
+COLON       61..62     |:|
+WHITESPACE  62..63     | |
+NUMBER      63..64     |5| number=5 integer
+DELIM       64..65     |.|
+SEMICOLON   65..66     |;|
+WHITESPACE  66..69     |\n  |
+IDENT       69..74     |width|
+COLON       74..75     |:|
+WHITESPACE  75..76     | |
+FUNCTION    76..81     |calc(| value=|calc|
+PERCENTAGE  81..85     |100%| value=|100| number=100 integer
+WHITESPACE  85..86     | |
+DELIM       86..87     |-|
+WHITESPACE  87..88     | |
+DIMENSION   88..91     |2px| value=|px| number=2 integer
+RIGHT_PAREN 91..92     |)|
+SEMICOLON   92..93     |;|
+WHITESPACE  93..94     |\n|
+RIGHT_CURLY 94..95     |}|
+WHITESPACE  95..96     |\n|

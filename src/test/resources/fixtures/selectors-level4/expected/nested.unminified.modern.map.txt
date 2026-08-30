@@ -1,0 +1,32 @@
+0:0 -> input.css:0:0  «* { box-sizing: border-b…»
+1:2 -> input.css:0:4  «box-sizing: border-box }»
+4:0 -> input.css:1:0  «div.card#main:hover { to…»
+5:2 -> input.css:1:22  «top: 0 }»
+8:0 -> input.css:2:0  «svg|circle, *|use, |defs…»
+9:0 -> input.css:2:12  «*|use, |defs { fill: non…»
+10:0 -> input.css:2:19  «|defs { fill: none }»
+11:2 -> input.css:2:27  «fill: none }»
+14:0 -> input.css:3:0  «main > article + aside ~…»
+15:2 -> input.css:3:32  «top: 0 }»
+18:0 -> input.css:4:0  «col || td { top: 0 }»
+19:2 -> input.css:4:12  «top: 0 }»
+22:0 -> input.css:5:0  «a[href], a[href^="https"…»
+23:0 -> input.css:5:9  «a[href^="https"], a[lang…»
+24:0 -> input.css:5:27  «a[lang|="en" i], a[data-…»
+25:0 -> input.css:5:44  «a[data-x$='y' s] { top: …»
+26:2 -> input.css:5:63  «top: 0 }»
+29:0 -> input.css:6:0  «p:is(.a, #b > c):not(.d)…»
+30:2 -> input.css:6:38  «top: 0 }»
+33:0 -> input.css:7:0  «li:nth-child(2n+1 of .vi…»
+34:2 -> input.css:7:49  «top: 0 }»
+37:0 -> input.css:8:0  «q::before, q:after, ::pa…»
+38:0 -> input.css:8:11  «q:after, ::part(label), …»
+39:0 -> input.css:8:20  «::part(label), ::slotted…»
+40:0 -> input.css:8:35  «::slotted(span) { top: 0…»
+41:2 -> input.css:8:53  «top: 0 }»
+44:0 -> input.css:9:0  «.a/* joined */.b { top: …»
+45:2 -> input.css:9:19  «top: 0 }»
+48:0 -> input.css:10:0  «.card { & .title, &:hove…»
+49:2 -> input.css:10:8  «& .title, &:hover > * { …»
+50:2 -> input.css:10:18  «&:hover > * { top: 0 } }»
+51:4 -> input.css:10:32  «top: 0 } }»

@@ -1,0 +1,3 @@
+﻿/* BOM before @charset: the BOM wins */
+@charset "iso-8859-2";
+.caf\e9 { content: "caf\e9" }

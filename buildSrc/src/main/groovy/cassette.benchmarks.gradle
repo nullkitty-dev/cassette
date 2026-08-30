@@ -1,0 +1,162 @@
+// Benchmarks, with the gc profiler always on because allocation rate is a tracked metric.
+// A full run is 29 benchmarks and takes about three hours: 24 over the 3 corpus entries, plus
+// OptionalWrapperBenchmark's 5, which parameterize on a hit rate instead.
+//
+// `benchmarks/README.md` owns how to read a result and what may be promoted to a baseline.
+// This file implements the five properties it names, which compose:
+//
+//   -Pjmh.quick                              1 fork, 1s iterations, results-quick.json
+//   -Pjmh.include='ParseBenchmark.parse$'    regex over benchmark FQNs; anchor it with $
+//   -Pjmh.corpus=MEDIUM                      the `corpus` @Param (SMALL|MEDIUM|LARGE), which
+//                                            OptionalWrapperBenchmark does not declare
+//   -Pjmh.forks=2 -Pjmh.iterations=20        rigor, for a paired differential
+//   -Pjmh.warmups=5                          warmup iterations
+plugins {
+    id 'java'
+    id 'me.champeau.jmh'
+}
+
+// A precompiled script plugin gets no type-safe `libs` accessor: those are generated for the
+// build that owns the catalog, which is the root build and not buildSrc.
+def libs = extensions.getByType(VersionCatalogsExtension).named('libs')
+
+def jmhQuick = providers.gradleProperty('jmh.quick').present
+def jmhInclude = providers.gradleProperty('jmh.include').orNull
+def jmhCorpus = providers.gradleProperty('jmh.corpus').orNull
+
+// A typo must not silently measure the default. `-Pjmh.iterations=2O` with a letter O would
+// otherwise read as absent, and the run would look like the 20-iteration run it was asked to be.
+def asCount = { String name, String raw ->
+    if (raw == null) {
+        return null
+    }
+    if (!(raw ==~ /\d+/) || raw.toInteger() < 1) {
+        throw new GradleException("-P${name} must be a positive integer, got '${raw}'")
+    }
+
+    raw.toInteger()
+}
+
+def forkOverride = asCount('jmh.forks', providers.gradleProperty('jmh.forks').orNull)
+def iterationOverride = asCount('jmh.iterations', providers.gradleProperty('jmh.iterations').orNull)
+def warmupOverride = asCount('jmh.warmups', providers.gradleProperty('jmh.warmups').orNull)
+
+def defaultForks = jmhQuick ? 1 : 2
+def defaultIterations = jmhQuick ? 3 : 5
+
+// Results go beside the project, never into `build/`, which `clean` and Gradle's own
+// stale-output cleanup are both entitled to empty. Two completed runs were lost that way;
+// benchmarks/README.md, "Results live outside build/", has the account.
+def jmhResults = layout.projectDirectory.dir('jmh-results')
+
+def jmhHead = providers.exec {
+    commandLine 'git', 'rev-parse', '--short', 'HEAD'
+}.standardOutput.asText.map { it.trim() }.orElse('nogit')
+
+jmh {
+    jmhVersion = libs.findVersion('jmh').get().requiredVersion
+    profilers = ['gc']
+    resultFormat = 'JSON'
+
+    if (jmhQuick) {
+        warmupIterations = 2
+        warmup = '1s'
+        timeOnIteration = '1s'
+        resultsFile = jmhResults.file('results-quick.json')
+    } else {
+        warmupIterations = 3
+        resultsFile = jmhResults.file('results.json')
+    }
+
+    // After the preset, so a switch overrides the mode rather than the other way round.
+    // `timeOnIteration` stays the mode's: iteration length is what separates quick from full.
+    fork = forkOverride ?: defaultForks
+    iterations = iterationOverride ?: defaultIterations
+    if (warmupOverride != null) {
+        warmupIterations = warmupOverride
+    }
+
+    if (jmhInclude != null) {
+        includes = [jmhInclude]
+    }
+    // Sets the `corpus` @Param, which every benchmark class declares except
+    // OptionalWrapperBenchmark. Selecting that one and passing this fails the run, since the
+    // parameter does not exist there.
+    if (jmhCorpus != null) {
+        benchmarkParameters = [
+            corpus: objects.listProperty(String).value(jmhCorpus.split(',').toList()),
+        ]
+    }
+}
+
+// The archive copy, named the way benchmarks/README.md names a baseline, so promoting one is a
+// move rather than a decision. `doLast` rather than a separate task: a task could be skipped or
+// filtered out, and nothing may stand between the run finishing and the bytes being safe.
+tasks.named('jmh') {
+    def resultsProvider = jmh.resultsFile
+    def forks = forkOverride ?: defaultForks
+    def measurements = iterationOverride ?: defaultIterations
+
+    // A run at non-standard rigor is named for it, so it cannot be promoted as an ordinary
+    // baseline. A standard full run keeps the plain `<date>-<commit>.json`.
+    def rigour = forks == defaultForks && measurements == defaultIterations ? '' : "-${forks}x${measurements}"
+    def suffix = (jmhQuick ? '-quick' : '') + rigour
+
+    doLast {
+        def produced = resultsProvider.get().asFile
+        if (!produced.exists()) {
+            logger.warn("JMH wrote no results file at ${produced} — nothing to archive")
+            return
+        }
+
+        // Stamped at execution time: a configuration-time date is the date the build was
+        // configured, which for an overnight run is the day before.
+        def stamp = new Date().format('yyyy-MM-dd')
+
+        // A second run on the same day at the same commit takes -2, -3 and so on. Overwriting
+        // it would defeat the one thing this copy is for, and two runs of one tree is the
+        // normal shape of asking whether a delta was real.
+        def base = "${stamp}-${jmhHead.get()}${suffix}"
+        def archived = new File(produced.parentFile, "${base}.json")
+        for (int n = 2; archived.exists(); n++) {
+            archived = new File(produced.parentFile, "${base}-${n}.json")
+        }
+
+        archived.bytes = produced.bytes
+
+        logger.lifecycle("JMH results: ${produced}")
+        logger.lifecycle("  rigour: ${forks} fork(s) x ${measurements} iterations${jmhQuick ? ' x 1s (quick)' : ''}")
+        logger.lifecycle("  archived as: ${archived}")
+        if (!jmhQuick) {
+            logger.lifecycle("  promote with: cp ${archived} benchmarks/  # then add a row to benchmarks/README.md")
+        }
+    }
+}
+
+// A benchmark reporting UP-TO-DATE has measured nothing, and its empty report looks exactly
+// like a run whose numbers did not move.
+tasks.named('jmh') { outputs.upToDateWhen { false } }
+
+// JMH's generated harness lives in the library's own packages, so on the module path it would
+// need --patch-module plumbing; `module-info` describes the published surface only.
+tasks.named('compileJmhJava', JavaCompile) { modularity.inferModulePath = false }
+
+// Size reports rather than benchmarks: no timing claim, so they stay out of the JMH suite.
+// The gc profiler measures what a parse allocates; `memoryCensus` measures what it hands back
+// still holding, and the two differ by a factor of three.
+tasks.register('minifyRate', JavaExec) {
+    group = 'verification'
+    description = 'Reports how much smaller minification makes the corpus, raw and gzipped.'
+    classpath = sourceSets.jmh.runtimeClasspath
+    mainClass = 'dev.nullkitty.cassette.jmh.MinifyRate'
+    maxHeapSize = '4g'
+}
+
+tasks.register('memoryCensus', JavaExec) {
+    group = 'verification'
+    description = 'Reports the retained size of a parsed AST over the benchmark corpus.'
+    classpath = sourceSets.jmh.runtimeClasspath
+    mainClass = 'dev.nullkitty.cassette.jmh.MemoryCensus'
+    // The largest corpus entry parses to a tree several times its own size.
+    maxHeapSize = '4g'
+}

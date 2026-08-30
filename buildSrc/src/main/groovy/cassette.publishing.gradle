@@ -1,0 +1,139 @@
+// Publishing to Maven Central, and the GitHub release beside it.
+//
+// Nothing here uploads. `publish` stages the artifacts into a local directory and JReleaser signs,
+// deploys and tags what it finds there:
+//
+//   ./gradlew clean build cliJar publish
+//   ./gradlew jreleaserConfig                  resolved config, no network
+//   ./gradlew jreleaserFullRelease --dry-run   signs and validates, uploads nothing
+//   ./gradlew jreleaserFullRelease             deploy, tag, GitHub release
+//
+// Credentials come from the environment, never from a file in the repository:
+// JRELEASER_GPG_{PUBLIC_KEY,SECRET_KEY,PASSPHRASE}, JRELEASER_MAVENCENTRAL_{USERNAME,PASSWORD}
+// and JRELEASER_GITHUB_TOKEN.
+//
+// `docs/specs/public-release/` owns why this shape and what the release steps are.
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id 'org.jreleaser'
+}
+
+// Gradle's `signing` plugin is deliberately absent.
+// JReleaser signs during deploy, and applying both produces double-signed artifacts that Central rejects.
+
+final REPOSITORY_URL = 'https://github.com/nullkitty-dev/cassette'
+final DESCRIPTION = 'A fast, dependency-free CSS parser, transformer and serializer for the JVM.'
+
+def stagingDir = layout.buildDirectory.dir('staging-deploy')
+
+// Registered by cassette.cli, which build.gradle applies first. It is not wired into `assemble`,
+// so a release has to build it explicitly or this path does not exist.
+def cliJar = tasks.named('cliJar', Jar)
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            // Carries the jar plus the sources and javadoc jars, which `build.gradle` adds to this
+            // component via withSourcesJar/withJavadocJar. Central rejects a release missing either.
+            from components.java
+
+            pom {
+                name = 'c(a)ssette'
+                description = DESCRIPTION
+                url = REPOSITORY_URL
+                inceptionYear = '2026'
+
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'https://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id = 'benweidig'
+                        name = 'benweidig'
+                        url = 'https://github.com/benweidig'
+                        email = '16641493+benweidig@users.noreply.github.com'
+                    }
+                }
+
+                scm {
+                    connection = "scm:git:${REPOSITORY_URL}.git"
+                    developerConnection = 'scm:git:ssh://git@github.com/nullkitty-dev/cassette.git'
+                    url = REPOSITORY_URL
+                }
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            name = 'staging'
+            url = stagingDir
+        }
+    }
+}
+
+// Every closure below names its parameter and assigns through it. These are JReleaser's objects,
+// not Gradle's, so a bare `owner`, `name` or `description` resolves against the enclosing Project
+// instead. `owner` and `name` are read-only there and fail loudly; `description` is writable and
+// would quietly set the Gradle project's description while leaving JReleaser's unset.
+jreleaser {
+    project { project ->
+        project.description = DESCRIPTION
+        project.copyright = '2026 The c(a)ssette authors'
+        project.license = 'Apache-2.0'
+        project.author('benweidig')
+
+        project.links { links ->
+            links.homepage = REPOSITORY_URL
+        }
+    }
+
+    signing { signing ->
+        signing.active = 'ALWAYS'
+        signing.armored = true
+    }
+
+    deploy { deploy ->
+        deploy.maven { maven ->
+            maven.mavenCentral { central ->
+                // A named container. The `sonatype { }` shorthand resolves dynamically against
+                // the delegate, which naming the parameter above gives up, so the entry is
+                // created explicitly. The name is free, but it is what the
+                // JRELEASER_DEPLOY_MAVEN_MAVENCENTRAL_<NAME>_* variables key on.
+                central.create('sonatype') { sonatype ->
+                    sonatype.active = 'ALWAYS'
+                    sonatype.url = 'https://central.sonatype.com/api/v1/publisher'
+
+                    // The Directory overload, not the documented 'build/staging-deploy' string.
+                    // That literal is resolved against the project directory, so a build whose
+                    // output directory has been relocated leaves it pointing where `publish`
+                    // never wrote. This is the same directory the publication stages into.
+                    sonatype.stagingRepository(stagingDir.get())
+                }
+            }
+        }
+    }
+
+    release { release ->
+        release.github { github ->
+            github.repoOwner = 'nullkitty-dev'
+            github.name = 'cassette'
+        }
+    }
+
+    // The CLI ships as a release asset rather than a Central artifact, so that the published
+    // coordinate stays a library with no Main-Class.
+    files { files ->
+        files.artifact { artifact ->
+            // A provider, never a resolved path. This plugin is applied from the `plugins` block,
+            // which runs before `build.gradle` assigns `version`, so reading the archive name here
+            // yields `cassette-cli.jar` for a file that is written as `cassette-1.0.0-cli.jar`.
+            artifact.path.set(cliJar.flatMap { it.archiveFile })
+        }
+    }
+}

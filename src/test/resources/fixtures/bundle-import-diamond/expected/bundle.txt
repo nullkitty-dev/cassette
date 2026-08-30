@@ -1,0 +1,36 @@
+Stylesheet 0..176
+  StyleRule 89..110
+    SelectorList 89..96
+      Complex 89..96 (0,1,0)
+        Compound 89..96
+          Class |shared|
+    Declaration |margin| 99..108
+      Number |0| = 0 integer
+  StyleRule 72..88
+    SelectorList 72..77
+      Complex 72..77 (0,1,0)
+        Compound 72..77
+          Class |left|
+    Declaration |top| 80..86
+      Number |0| = 0 integer
+  StyleRule 154..175
+    SelectorList 154..161
+      Complex 154..161 (0,1,0)
+        Compound 154..161
+          Class |shared|
+    Declaration |margin| 164..173
+      Number |0| = 0 integer
+  StyleRule 136..153
+    SelectorList 136..142
+      Complex 136..142 (0,1,0)
+        Compound 136..142
+          Class |right|
+    Declaration |top| 145..151
+      Number |0| = 0 integer
+
+segments
+  0..47 index.css
+  47..89 left.css imported from index.css@0
+  89..111 shared.css imported from left.css@0
+  111..154 right.css imported from index.css@23
+  154..176 shared.css imported from right.css@0

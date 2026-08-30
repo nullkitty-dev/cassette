@@ -1,0 +1,22 @@
+Stylesheet 0..124
+  StyleRule 0..6
+    SelectorList 0..2
+      Complex 0..2 (0,1,0)
+        Compound 0..2
+          Class |a|
+  Comment 21..43 | Ambiguous "rule" |
+  StyleRule 44..50
+    SelectorList 44..46
+      Complex 44..46 (0,1,0)
+        Compound 44..46
+          Class |b|
+  Comment 67..116 | Ambiguous "rule", with a mismatched bracket |
+  StyleRule 117..123
+    SelectorList 117..119
+      Complex 117..119 (0,1,0)
+        Compound 117..119
+          Class |c|
+
+diagnostics
+  ERROR 7..17 '--x:' starts a custom property, not a selector
+  ERROR 51..61 '--y:' starts a custom property, not a selector

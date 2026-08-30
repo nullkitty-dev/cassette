@@ -1,0 +1,27 @@
+AT_KEYWORD  0..8       |@charset| value=|charset|
+WHITESPACE  8..9       | |
+STRING      9..16      |"utf-8"| value=|utf-8|
+SEMICOLON   16..17     |;|
+WHITESPACE  17..18     |\n|
+AT_KEYWORD  18..26     |@charset| value=|charset|
+WHITESPACE  26..27     | |
+STRING      27..34     |"utf-8"| value=|utf-8|
+SEMICOLON   34..35     |;|
+WHITESPACE  35..36     |\n|
+IDENT       36..39     |foo|
+WHITESPACE  39..40     | |
+LEFT_CURLY  40..41     |{|
+WHITESPACE  41..42     | |
+IDENT       42..47     |color|
+COLON       47..48     |:|
+WHITESPACE  48..49     | |
+IDENT       49..53     |blue|
+SEMICOLON   53..54     |;|
+WHITESPACE  54..55     | |
+RIGHT_CURLY 55..56     |}|
+WHITESPACE  56..57     |\n|
+AT_KEYWORD  57..65     |@charset| value=|charset|
+WHITESPACE  65..66     | |
+STRING      66..73     |"utf-8"| value=|utf-8|
+SEMICOLON   73..74     |;|
+WHITESPACE  74..75     |\n|

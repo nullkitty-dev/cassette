@@ -1,0 +1,9 @@
+@import url(theme.css);
+
+.reset {
+  margin: 0;
+}
+
+.button {
+  color: red;
+}

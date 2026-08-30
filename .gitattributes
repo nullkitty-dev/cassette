@@ -1,0 +1,8 @@
+* text=auto eol=lf
+
+# Fixtures and corpus are byte-compared. Line-ending translation would break them.
+*.css -text
+
+gradlew text eol=lf
+gradlew.bat text eol=crlf
+*.jar binary

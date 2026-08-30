@@ -1,0 +1,272 @@
+DELIM       0..1       |*|
+WHITESPACE  1..2       | |
+LEFT_CURLY  2..3       |{|
+WHITESPACE  3..4       | |
+IDENT       4..14      |box-sizing|
+COLON       14..15     |:|
+WHITESPACE  15..16     | |
+IDENT       16..26     |border-box|
+WHITESPACE  26..27     | |
+RIGHT_CURLY 27..28     |}|
+WHITESPACE  28..29     |\n|
+IDENT       29..32     |div|
+DELIM       32..33     |.|
+IDENT       33..37     |card|
+HASH        37..42     |#main| value=|main| id
+COLON       42..43     |:|
+IDENT       43..48     |hover|
+WHITESPACE  48..49     | |
+LEFT_CURLY  49..50     |{|
+WHITESPACE  50..51     | |
+IDENT       51..54     |top|
+COLON       54..55     |:|
+WHITESPACE  55..56     | |
+NUMBER      56..57     |0| number=0 integer
+WHITESPACE  57..58     | |
+RIGHT_CURLY 58..59     |}|
+WHITESPACE  59..60     |\n|
+IDENT       60..63     |svg|
+DELIM       63..64     |\||
+IDENT       64..70     |circle|
+COMMA       70..71     |,|
+WHITESPACE  71..72     | |
+DELIM       72..73     |*|
+DELIM       73..74     |\||
+IDENT       74..77     |use|
+COMMA       77..78     |,|
+WHITESPACE  78..79     | |
+DELIM       79..80     |\||
+IDENT       80..84     |defs|
+WHITESPACE  84..85     | |
+LEFT_CURLY  85..86     |{|
+WHITESPACE  86..87     | |
+IDENT       87..91     |fill|
+COLON       91..92     |:|
+WHITESPACE  92..93     | |
+IDENT       93..97     |none|
+WHITESPACE  97..98     | |
+RIGHT_CURLY 98..99     |}|
+WHITESPACE  99..100    |\n|
+IDENT       100..104   |main|
+WHITESPACE  104..105   | |
+DELIM       105..106   |>|
+WHITESPACE  106..107   | |
+IDENT       107..114   |article|
+WHITESPACE  114..115   | |
+DELIM       115..116   |+|
+WHITESPACE  116..117   | |
+IDENT       117..122   |aside|
+WHITESPACE  122..123   | |
+DELIM       123..124   |~|
+WHITESPACE  124..125   | |
+IDENT       125..126   |p|
+WHITESPACE  126..127   | |
+IDENT       127..129   |em|
+WHITESPACE  129..130   | |
+LEFT_CURLY  130..131   |{|
+WHITESPACE  131..132   | |
+IDENT       132..135   |top|
+COLON       135..136   |:|
+WHITESPACE  136..137   | |
+NUMBER      137..138   |0| number=0 integer
+WHITESPACE  138..139   | |
+RIGHT_CURLY 139..140   |}|
+WHITESPACE  140..141   |\n|
+IDENT       141..144   |col|
+WHITESPACE  144..145   | |
+DELIM       145..146   |\||
+DELIM       146..147   |\||
+WHITESPACE  147..148   | |
+IDENT       148..150   |td|
+WHITESPACE  150..151   | |
+LEFT_CURLY  151..152   |{|
+WHITESPACE  152..153   | |
+IDENT       153..156   |top|
+COLON       156..157   |:|
+WHITESPACE  157..158   | |
+NUMBER      158..159   |0| number=0 integer
+WHITESPACE  159..160   | |
+RIGHT_CURLY 160..161   |}|
+WHITESPACE  161..162   |\n|
+IDENT       162..163   |a|
+LEFT_SQUARE 163..164   |[|
+IDENT       164..168   |href|
+RIGHT_SQUARE168..169   |]|
+COMMA       169..170   |,|
+WHITESPACE  170..171   | |
+IDENT       171..172   |a|
+LEFT_SQUARE 172..173   |[|
+IDENT       173..177   |href|
+DELIM       177..178   |^|
+DELIM       178..179   |=|
+STRING      179..186   |"https"| value=|https|
+RIGHT_SQUARE186..187   |]|
+COMMA       187..188   |,|
+WHITESPACE  188..189   | |
+IDENT       189..190   |a|
+LEFT_SQUARE 190..191   |[|
+IDENT       191..195   |lang|
+DELIM       195..196   |\||
+DELIM       196..197   |=|
+STRING      197..201   |"en"| value=|en|
+WHITESPACE  201..202   | |
+IDENT       202..203   |i|
+RIGHT_SQUARE203..204   |]|
+COMMA       204..205   |,|
+WHITESPACE  205..206   | |
+IDENT       206..207   |a|
+LEFT_SQUARE 207..208   |[|
+IDENT       208..214   |data-x|
+DELIM       214..215   |$|
+DELIM       215..216   |=|
+STRING      216..219   |'y'| value=|y|
+WHITESPACE  219..220   | |
+IDENT       220..221   |s|
+RIGHT_SQUARE221..222   |]|
+WHITESPACE  222..223   | |
+LEFT_CURLY  223..224   |{|
+WHITESPACE  224..225   | |
+IDENT       225..228   |top|
+COLON       228..229   |:|
+WHITESPACE  229..230   | |
+NUMBER      230..231   |0| number=0 integer
+WHITESPACE  231..232   | |
+RIGHT_CURLY 232..233   |}|
+WHITESPACE  233..234   |\n|
+IDENT       234..235   |p|
+COLON       235..236   |:|
+FUNCTION    236..239   |is(| value=|is|
+DELIM       239..240   |.|
+IDENT       240..241   |a|
+COMMA       241..242   |,|
+WHITESPACE  242..243   | |
+HASH        243..245   |#b| value=|b| id
+WHITESPACE  245..246   | |
+DELIM       246..247   |>|
+WHITESPACE  247..248   | |
+IDENT       248..249   |c|
+RIGHT_PAREN 249..250   |)|
+COLON       250..251   |:|
+FUNCTION    251..255   |not(| value=|not|
+DELIM       255..256   |.|
+IDENT       256..257   |d|
+RIGHT_PAREN 257..258   |)|
+COLON       258..259   |:|
+FUNCTION    259..263   |has(| value=|has|
+DELIM       263..264   |>|
+WHITESPACE  264..265   | |
+IDENT       265..268   |img|
+RIGHT_PAREN 268..269   |)|
+WHITESPACE  269..270   | |
+LEFT_CURLY  270..271   |{|
+WHITESPACE  271..272   | |
+IDENT       272..275   |top|
+COLON       275..276   |:|
+WHITESPACE  276..277   | |
+NUMBER      277..278   |0| number=0 integer
+WHITESPACE  278..279   | |
+RIGHT_CURLY 279..280   |}|
+WHITESPACE  280..281   |\n|
+IDENT       281..283   |li|
+COLON       283..284   |:|
+FUNCTION    284..294   |nth-child(| value=|nth-child|
+DIMENSION   294..296   |2n| value=|n| number=2 integer
+NUMBER      296..298   |+1| number=1 integer signed
+WHITESPACE  298..299   | |
+IDENT       299..301   |of|
+WHITESPACE  301..302   | |
+DELIM       302..303   |.|
+IDENT       303..310   |visible|
+RIGHT_PAREN 310..311   |)|
+COLON       311..312   |:|
+FUNCTION    312..318   |where(| value=|where|
+HASH        318..326   |#ignored| value=|ignored| id
+RIGHT_PAREN 326..327   |)|
+WHITESPACE  327..328   | |
+LEFT_CURLY  328..329   |{|
+WHITESPACE  329..330   | |
+IDENT       330..333   |top|
+COLON       333..334   |:|
+WHITESPACE  334..335   | |
+NUMBER      335..336   |0| number=0 integer
+WHITESPACE  336..337   | |
+RIGHT_CURLY 337..338   |}|
+WHITESPACE  338..339   |\n|
+IDENT       339..340   |q|
+COLON       340..341   |:|
+COLON       341..342   |:|
+IDENT       342..348   |before|
+COMMA       348..349   |,|
+WHITESPACE  349..350   | |
+IDENT       350..351   |q|
+COLON       351..352   |:|
+IDENT       352..357   |after|
+COMMA       357..358   |,|
+WHITESPACE  358..359   | |
+COLON       359..360   |:|
+COLON       360..361   |:|
+FUNCTION    361..366   |part(| value=|part|
+IDENT       366..371   |label|
+RIGHT_PAREN 371..372   |)|
+COMMA       372..373   |,|
+WHITESPACE  373..374   | |
+COLON       374..375   |:|
+COLON       375..376   |:|
+FUNCTION    376..384   |slotted(| value=|slotted|
+IDENT       384..388   |span|
+RIGHT_PAREN 388..389   |)|
+WHITESPACE  389..390   | |
+LEFT_CURLY  390..391   |{|
+WHITESPACE  391..392   | |
+IDENT       392..395   |top|
+COLON       395..396   |:|
+WHITESPACE  396..397   | |
+NUMBER      397..398   |0| number=0 integer
+WHITESPACE  398..399   | |
+RIGHT_CURLY 399..400   |}|
+WHITESPACE  400..401   |\n|
+DELIM       401..402   |.|
+IDENT       402..403   |a|
+COMMENT     403..415   |/* joined */| value=| joined |
+DELIM       415..416   |.|
+IDENT       416..417   |b|
+WHITESPACE  417..418   | |
+LEFT_CURLY  418..419   |{|
+WHITESPACE  419..420   | |
+IDENT       420..423   |top|
+COLON       423..424   |:|
+WHITESPACE  424..425   | |
+NUMBER      425..426   |0| number=0 integer
+WHITESPACE  426..427   | |
+RIGHT_CURLY 427..428   |}|
+WHITESPACE  428..429   |\n|
+DELIM       429..430   |.|
+IDENT       430..434   |card|
+WHITESPACE  434..435   | |
+LEFT_CURLY  435..436   |{|
+WHITESPACE  436..437   | |
+DELIM       437..438   |&|
+WHITESPACE  438..439   | |
+DELIM       439..440   |.|
+IDENT       440..445   |title|
+COMMA       445..446   |,|
+WHITESPACE  446..447   | |
+DELIM       447..448   |&|
+COLON       448..449   |:|
+IDENT       449..454   |hover|
+WHITESPACE  454..455   | |
+DELIM       455..456   |>|
+WHITESPACE  456..457   | |
+DELIM       457..458   |*|
+WHITESPACE  458..459   | |
+LEFT_CURLY  459..460   |{|
+WHITESPACE  460..461   | |
+IDENT       461..464   |top|
+COLON       464..465   |:|
+WHITESPACE  465..466   | |
+NUMBER      466..467   |0| number=0 integer
+WHITESPACE  467..468   | |
+RIGHT_CURLY 468..469   |}|
+WHITESPACE  469..470   | |
+RIGHT_CURLY 470..471   |}|
+WHITESPACE  471..472   |\n|

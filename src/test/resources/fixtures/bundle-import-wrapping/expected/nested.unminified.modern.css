@@ -1,0 +1,43 @@
+.plain {
+  top: 0;
+}
+
+@media screen and (min-width: 30em) {
+  .screen {
+    top: 0;
+  }
+}
+
+@layer base {
+  .layered {
+    top: 0;
+  }
+}
+
+@layer {
+  .anon {
+    top: 0;
+  }
+}
+
+@supports (display: grid) {
+  .decl {
+    top: 0;
+  }
+}
+
+@supports (display: grid) or (display: flex) {
+  .cond {
+    top: 0;
+  }
+}
+
+@layer theme {
+  @supports (display: grid) {
+    @media print {
+      .all {
+        top: 0;
+      }
+    }
+  }
+}

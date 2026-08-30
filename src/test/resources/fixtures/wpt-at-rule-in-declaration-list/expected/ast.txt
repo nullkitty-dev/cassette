@@ -1,0 +1,42 @@
+Stylesheet 0..157
+  StyleRule 0..32
+    SelectorList 0..3
+      Complex 0..3 (0,0,1)
+        Compound 0..3
+          Type |div|
+    AtRule @at 8..14
+    Declaration |color| 17..29
+      Ident |green|
+  StyleRule 34..67
+    SelectorList 34..37
+      Complex 34..37 (0,0,1)
+        Compound 34..37
+          Type |div|
+    AtRule @at 42..49 statement
+      prelude
+        Ident |at|
+    Declaration |color| 52..64
+      Ident |green|
+  AtRule @page 69..107
+    block
+      AtKeyword @|at|
+      Whitespace
+      Block |{}| 83..85
+      Whitespace
+      Ident |margin-top|
+      Punctuation |:|
+      Whitespace
+      Dimension |20| unit=|px| = 20
+      Punctuation |;|
+  AtRule @font-face 109..156
+    block
+      AtKeyword @|at|
+      Whitespace
+      Ident |at|
+      Punctuation |;|
+      Whitespace
+      Ident |font-family|
+      Punctuation |:|
+      Whitespace
+      Ident |myfont|
+      Punctuation |;|

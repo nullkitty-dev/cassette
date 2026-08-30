@@ -1,0 +1,27 @@
+Stylesheet 0..110
+  StyleRule 0..35
+    SelectorList 0..2
+      Complex 0..2 (0,1,0)
+        Compound 0..2
+          Class |a|
+    Declaration |background-image| 5..33
+      Function |url| 23..33
+        String |foo|
+  StyleRule 36..72
+    SelectorList 36..38
+      Complex 36..38 (0,1,0)
+        Compound 36..38
+          Class |b|
+    Declaration |background-image| 41..70
+      Function |url| 59..70
+        Whitespace
+        String |foo|
+  StyleRule 73..109
+    SelectorList 73..75
+      Complex 73..75 (0,1,0)
+        Compound 73..75
+          Class |c|
+    Declaration |background-image| 78..107
+      Function |url| 96..107
+        String |foo|
+        Whitespace
